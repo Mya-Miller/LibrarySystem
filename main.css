@@ -3,6 +3,7 @@
     --white: #FFFFFF;
     --black: #000000;
     --darkgreen: #197D4B; 
+    --grey: #787878;
 }
 
 
@@ -26,6 +27,9 @@ body{
     --btnFontColor: var(--white);
     --headerBg: var(--darkgreen);
     --headerFontColor: var(--black);
+    --navbarBg: var(--grey);
+    --navbarFontColor: var(--black);
+    
 }
 
 .dark-theme{
@@ -35,6 +39,8 @@ body{
     --btnFontColor: var(--black);
     --headerBg: var(--darkgreen);
     --headerFontColor: var(--white);
+    --navbarBg: var(--grey);
+    --navbarFontColor: var(--white);
 }
 
 .btn {
@@ -47,4 +53,27 @@ body{
     border: none;
     color: var(--btnFontColor);
     background-color: var(--btnBg);
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: var(--navbarBg);
+}
+
+.navbar a{
+    float: left;
+    display: block;
+    color: var(--navbarFontColor);
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+    background-color: white;
+    color: teal;
+}
+
+.navbar a.right{
+    float: right;
 }
