@@ -1,9 +1,9 @@
 :root {
-    --green: #7FFFD4;
     --white: #FFFFFF;
     --black: #000000;
-    --darkgreen: #197D4B; 
+    --darkgreen: #2d6a32; 
     --grey: #787878;
+    --darkgrey: #333333;
 }
 
 
@@ -16,17 +16,17 @@ body{
 .header {
     padding: 4px;
     text-align: center;
-    color: var(--headerFontColor);
-    background-color: var(--headerBg);
+    color: var(--white);
+    background-color: var(--darkgreen);
 }
 
 .light-theme{
-    --bg: var(--green);
+    --bg: var(--white);
     --fontColor: var(--black);
     --btnBg: var(--black);
     --btnFontColor: var(--white);
     --headerBg: var(--darkgreen);
-    --headerFontColor: var(--black);
+    --headerFontColor: (--black);
     --navbarBg: var(--grey);
     --navbarFontColor: var(--black);
     
@@ -43,10 +43,16 @@ body{
     --navbarFontColor: var(--white);
 }
 
+.logo_btn {
+    position: absolute;
+    top: 8px;
+    left: 200px;
+}
+
 .btn {
     position: absolute;
     top: 20px;
-    left: 250px;
+    right: 250px;
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -57,21 +63,21 @@ body{
 
 .navbar {
     overflow: hidden;
-    background-color: var(--navbarBg);
+    background-color: var(--darkgrey);
 }
 
 .navbar a{
     float: left;
     display: block;
-    color: var(--navbarFontColor);
+    color: var(--white);
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
 }
 
 .navbar a:hover{
-    background-color: white;
-    color: teal;
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .navbar a.right{
