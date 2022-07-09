@@ -15,7 +15,6 @@ body{
 
 .header {
     padding: 4px;
-    text-align: center;
     color: var(--white);
     background-color: var(--darkgreen);
 }
@@ -29,7 +28,8 @@ body{
     --headerFontColor: (--black);
     --navbarBg: var(--grey);
     --navbarFontColor: var(--black);
-    
+    --navbarHoverBg: var(--white);
+    --navbarHoverFontColor: var(--black);
 }
 
 .dark-theme{
@@ -41,12 +41,14 @@ body{
     --headerFontColor: var(--white);
     --navbarBg: var(--darkgrey);
     --navbarFontColor: var(--white);
+    --navbarHoverBg: var(--grey);
+    --navbarHoverFontColor: var(--black);
 }
 
 .logo_btn {
-    position: absolute;
-    top: 8px;
-    left: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .btn {
@@ -76,10 +78,11 @@ body{
 }
 
 .navbar a:hover{
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--navbarHoverBg);
+    color: var(--navbarHoverFontColor);
 }
 
 .navbar a.right{
     float: right;
 }
+
