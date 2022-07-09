@@ -39,7 +39,7 @@ body{
     --btnFontColor: var(--black);
     --headerBg: var(--darkgreen);
     --headerFontColor: var(--white);
-    --navbarBg: var(--grey);
+    --navbarBg: var(--darkgrey);
     --navbarFontColor: var(--white);
 }
 
