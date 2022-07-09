@@ -63,7 +63,7 @@ body{
 
 .navbar {
     overflow: hidden;
-    background-color: var(--darkgrey);
+    background-color: var(--navbarBg);
 }
 
 .navbar a{
