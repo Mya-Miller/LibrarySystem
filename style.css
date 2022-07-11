@@ -3,8 +3,9 @@
     --black: #000000;
     --darkgreen: #2d6a32; 
     --grey: #787878;
-    --darkgrey: #333333;
+    --darkgrey: #4D4D4D;
     --blue: #454FD9;
+    --darkergrey: #202124;
 }
 
 
@@ -34,8 +35,8 @@ body {
 }
 
 .dark-theme {
-    --bg: var(--black);
-    --fontColor: var(--green);
+    --bg: var(--darkergrey);
+    --fontColor: var(--white);
     --btnBg: var(--white);
     --btnFontColor: var(--black);
     --headerBg: var(--darkgreen);
@@ -90,8 +91,16 @@ body {
 }
 
 div.thumbnail {
-    width: 80%;
+    width: 140px;
     background-color: var(--white);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 25px;
     margin-bottom: 25px;
+    text-align: center;
+    
+}
+
+div.rowcontainer {
+    display: flex;
+    justify-content: space-evenly;
 }
