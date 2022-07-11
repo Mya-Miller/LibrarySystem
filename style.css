@@ -32,6 +32,7 @@ body {
     --navbarFontColor: var(--black);
     --navbarHoverBg: var(--white);
     --navbarHoverFontColor: var(--black);
+    --thumbnailBg: var(--white);
 }
 
 .dark-theme {
@@ -45,6 +46,7 @@ body {
     --navbarFontColor: var(--white);
     --navbarHoverBg: var(--grey);
     --navbarHoverFontColor: var(--black);
+    --thumbnailBg: var(--grey);
 }
 
 .logo_btn {
@@ -92,7 +94,7 @@ body {
 
 div.thumbnail {
     width: 140px;
-    background-color: var(--white);
+    background-color: var(--thumbnailBg);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 25px;
     margin-bottom: 25px;
