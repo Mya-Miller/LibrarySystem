@@ -56,14 +56,15 @@ body {
 }
 
 .btn {
-    display: flex;
+    /*display: flex;
     justify-content: baseline;
-    align-items: center;
+    align-items: center;*/
+    float: right;
     top: 20px;
     right: 250px;
     height: 50px;
-    width: 50px;
-    border-radius: 50%;
+    width: 100px;
+    /*border-radius: 50%;*/
     border: none;
     color: var(--btnFontColor);
     background-color: var(--btnBg);
