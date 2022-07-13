@@ -26,7 +26,8 @@ loginButton.addEventListener("click", (e) => {
     const username = loginForm.username.value;
     const password = loginForm.password.value;
 
-    if (username === "user" && password === "web_dev") {
+   //replace this entire section with something to do with actual verification
+    if (username === "user" && password === "web_dev") { //dummy code to test basic functionality
         alert("You have successfully logged in.");
         location.reload();
     } else {
