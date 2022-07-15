@@ -16,21 +16,3 @@ switcher.addEventListener('click', function() {
 
     console.log('current class name: ' + className);
 });
-
-const loginForm = document.getElementById("login-form");
-const loginButton = document.getElementById("login-form-submit");
-const loginErrorMsg = document.getElementById("login-error-msg");
-
-loginButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    const username = loginForm.username.value;
-    const password = loginForm.password.value;
-
-   //replace this entire section with something to do with actual verification
-    if (username === "user" && password === "web_dev") { //dummy code to test basic functionality
-        alert("You have successfully logged in.");
-        location.reload();
-    } else {
-        loginErrorMsg.style.opacity = 1;
-    }
-})

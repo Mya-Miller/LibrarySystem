@@ -1,5 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  onAuthStateChanged, 
+  connectAuthEmulator,
+  signOut 
+} from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -17,3 +24,52 @@ const firebaseApp = initializeApp({
 
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
+connectAuthEmulator(auth, "http://localhost:9099")
+
+const loginEmailPassword = async () => {
+  const loginEmail = txtEmail.value;
+  const loginPassword = txtPassword.value;
+
+  const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+  console.log(userCredential.user);
+}
+
+btnLogin.addEventListener("click, loginEmailPassword");
+
+const createAccount = async () => {
+  const loginEmail = txtEmail.value;
+  const loginPassword = txtPassword.value;
+}
+
+try{
+  const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
+  console.log(userCredential.user);
+}
+catch(error) {
+  console.log(error);
+  showLoginError(error);
+}
+
+const monitorAuthState = async () => {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      console.log(user);
+      showApp();
+      showLoginState(user);
+
+      hideLoginError();
+    }
+    else{
+      showLoginForm();
+      lblAuthState.innerHTML = "You're ont logged in."
+    }
+  });
+}
+
+monitorAuthState();
+
+const logout = async () => {
+  await signOut(auth);
+}
+
+btnLogout.addEventListener("click", logout);
