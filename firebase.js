@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import { 
   getAuth, 
   createUserWithEmailAndPassword, 
@@ -6,7 +6,7 @@ import {
   onAuthStateChanged, 
   connectAuthEmulator,
   signOut 
-} from "firebase/auth";
+} from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -27,35 +27,35 @@ const db = getFirestore(firebaseApp);
 connectAuthEmulator(auth, "http://localhost:9099")
 
 const loginEmailPassword = async () => {
-  const loginEmail = txtEmail.value;
-  const loginPassword = txtPassword.value;
+  const loginEmail = txtLoginEmail.value
+  const loginPassword = txtLoginPassword.value
 
-  const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-  console.log(userCredential.user);
+  const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+  console.log(userCredential.user)
 
   try{
-    const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-    console.log(userCredential.user);
+    const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+    console.log(userCredential.user)
   }
   catch(error) {
-    console.log('There was an error: ${error}');
-    showLoginError(error);
+    console.log('There was an error: ${error}')
+    showLoginError(error)
   }
 }
 
-btnLogin.addEventListener("click, loginEmailPassword");
+btnLogin.addEventListener("click", loginEmailPassword);
 
 const createAccount = async () => {
-  const loginEmail = txtEmail.value;
-  const loginPassword = txtPassword.value;
+  const loginEmail = txtRegisterEmail.value
+  const loginPassword = txtRegisterPassword.value
 
   try{
-    const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
-    console.log(userCredential.user);
+    const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
+    console.log(userCredential.user)
   }
   catch(error) {
-    console.log(error);
-    showLoginError(error);
+    console.log(error)
+    showLoginError(error)
   }
 }
 
@@ -64,15 +64,15 @@ btnRegister.addEventListener("click", createAccount)
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log(user);
-      showApp();
-      showLoginState(user);
+      console.log(user)
+      showApp()
+      showLoginState(user)
 
-      hideLoginError();
+      hideLoginError()
     }
     else{
-      showLoginForm();
-      lblAuthState.innerHTML = "You're not logged in."
+      showLoginForm()
+      lblAuthState.innerHTML = `You're not logged in.`
     }
   });
 }
@@ -83,5 +83,5 @@ const logout = async () => {
   await signOut(auth);
 }
 
-btnLogout.addEventListener("click", logout);
+btnLogout.addEventListener("click", logout)
 
