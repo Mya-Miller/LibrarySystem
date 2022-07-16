@@ -85,13 +85,3 @@ const logout = async () => {
 
 btnLogout.addEventListener("click", logout);
 
-const loginContainer = document.querySelector(".logincontainer");
-const register = document.querySelector(".register-link");
-const login = document.querySelector(".login-link");
-
-register.addEventListener("click", ( )=>{
-  loginContainer.classList.add("active");
-});
-login.addEventListener("click", ( )=>{
-  loginContainer.classList.remove("active");
-});
