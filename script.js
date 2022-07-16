@@ -8,9 +8,11 @@ switcher.addEventListener('click', function() {
 
     const className = document.body.className;
     if (className == "light-theme"){
+        //switcher.classList.toggle ("uil uil-sun", "uil uil-moon");
         this.textContent = "Dark Mode";
     }
     else {
+        //switcher.classList.toggle ("uil uil-moon", "uil uil-sun");
         this.textContent = "Light Mode";
     }
 

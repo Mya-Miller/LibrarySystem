@@ -32,6 +32,15 @@ const loginEmailPassword = async () => {
 
   const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
   console.log(userCredential.user);
+
+  try{
+    const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+    console.log(userCredential.user);
+  }
+  catch(error) {
+    console.log('There was an error: ${error}');
+    showLoginError(error);
+  }
 }
 
 btnLogin.addEventListener("click, loginEmailPassword");
@@ -39,16 +48,18 @@ btnLogin.addEventListener("click, loginEmailPassword");
 const createAccount = async () => {
   const loginEmail = txtEmail.value;
   const loginPassword = txtPassword.value;
+
+  try{
+    const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
+    console.log(userCredential.user);
+  }
+  catch(error) {
+    console.log(error);
+    showLoginError(error);
+  }
 }
 
-try{
-  const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
-  console.log(userCredential.user);
-}
-catch(error) {
-  console.log(error);
-  showLoginError(error);
-}
+btnRegister.addEventListener("click", createAccount)
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
@@ -61,7 +72,7 @@ const monitorAuthState = async () => {
     }
     else{
       showLoginForm();
-      lblAuthState.innerHTML = "You're ont logged in."
+      lblAuthState.innerHTML = "You're not logged in."
     }
   });
 }
@@ -73,3 +84,14 @@ const logout = async () => {
 }
 
 btnLogout.addEventListener("click", logout);
+
+const loginContainer = document.querySelector(".logincontainer");
+const register = document.querySelector(".register-link");
+const login = document.querySelector(".login-link");
+
+register.addEventListener("click", ( )=>{
+  loginContainer.classList.add("active");
+});
+login.addEventListener("click", ( )=>{
+  loginContainer.classList.remove("active");
+});

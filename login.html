@@ -5,21 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, inital-scale=1.0" />
     <title>Book Catalog</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="login.css">
     <script type="module" src="firebase.js"></script>
   </head>
+
   <body class="light-theme">
     <div class="header">
       <div class="logo_btn">
-        <form name="UNTLogo" method="" action="index.html">
-          <input
-            name="UNTLogo"
-            type="image"
-            src="images/UNTLogo.png"
-            height="100"
-            width="100"
-          />
-        </form>
+        <div class="untlogo"> <img src="images/UNTLogo.png" alt="UNT Logo" style="width:100px;height:100px"></div>
         <h1>University of North Texas eLibrary</h1>
         <div class="invisibleitem" style="width: 100px; height: 100px"></div>
       </div>
@@ -30,28 +25,80 @@
       <a href="index.html">View eBook Catalog</a>
       <a href="reservestudyroom.html">Reserve Study Room</a>
       <div>
-      <button class="btn">Dark Mode</button>
+      <button class="btn"><i class="uil uil-moon"></i>Dark Mode</button>
       </div>
     </div>
 
-    <div class="login">
-      <form>
-        <div class="group">
-          <input id="txtEmail" type="email">
-          <label>Email</label>
-        </div>
-        <div class="group">
-          <input id="txtPassword" type="password">
-          <label>Password</label>
-        </div>
-        <div id="divLoginError" class="group">
-          <div id="lblLoginErrorMessage" class="errorlabel">Error message</div>
-        </div>
-        <button id="btnLogin" type="button" class="button buttonBlue">Log in</button>
-        <button id="btnSignup" type="button" class="button buttonBlue">Sign up</button>
-      </form>
-    </div>
+    <div class="loginbody">
+      <div class="logincontainer">
+        <div class="forms">
+          <div class="form login">
+            <span class="title">Login</span>
 
+            <form action="#">
+              <div class="input-field">
+                <input id="txtEmail" type="email" placeholder="Enter your email" required>
+                <i class="uil uil-envelope"></i>
+              </div>
+
+              <div class="input-field">
+                <input id="txtPassword" type="password" class="password" placeholder="Enter your password" required>
+                <i class="uil uil-lock"></i>
+              </div>
+
+              <div class="input-field button">
+                <input id="btnLogin" type="button" value="Login">
+              </div>
+            </form>
+
+            <div class="login-register">
+              <span class="text">Don't have an account?
+                <a href="#" class="text register-link">Register now</a>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="form registration">
+            <span class="title">Registration</span>
+
+            <form action="#">
+              <div class="input-field">
+                <input type="text" placeholder="Enter your name" required>
+                <i class="uil uil-user"></i>
+              </div>
+
+              <div class="input-field">
+                <input id="txtEmail" type="email" placeholder="Enter your email" required>
+                <i class="uil uil-envelope"></i>
+              </div>
+
+              <div class="input-field">
+                <input id="txtPassword" type="password" class="password" placeholder="Create your password" required>
+                <i class="uil uil-lock"></i>
+              </div>
+
+              <div class="input-field">
+                <input id="txtPassword" type="password" class="password" placeholder="Confirm your password" required>
+                <i class="uil uil-lock"></i>
+              </div>
+
+              <div class="input-field button">
+                <input type="button" id="btnRegister" value="Register">
+              </div>
+            </form>
+
+            <div class="login-register">
+              <span class="text">Already have an account?
+                <a href="#" class="text login-link">Login now</a>
+              </span>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
 
     <script src="script.js"></script>
     <noscript>You need to enable JavaScript to view the full site.</noscript>
