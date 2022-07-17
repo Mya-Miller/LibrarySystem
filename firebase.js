@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js';
 import { 
   getAuth, 
   createUserWithEmailAndPassword, 
@@ -6,8 +6,8 @@ import {
   onAuthStateChanged, 
   connectAuthEmulator,
   signOut 
-} from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+} from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -24,7 +24,7 @@ const firebaseApp = initializeApp({
 
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
-connectAuthEmulator(auth, "http://localhost:9099")
+connectAuthEmulator(auth, "http://localhost:9099");
 
 const loginEmailPassword = async () => {
   const loginEmail = txtLoginEmail.value
@@ -65,14 +65,14 @@ const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
     if (user) {
       console.log(user)
-      showApp()
-      showLoginState(user)
+      //showApp()
+      //showLoginState(user)
 
-      hideLoginError()
+     // hideLoginError()
     }
     else{
-      showLoginForm()
-      lblAuthState.innerHTML = `You're not logged in.`
+      //showLoginForm()
+      //lblAuthState.innerHTML = `You're not logged in.`
     }
   });
 }
@@ -83,5 +83,5 @@ const logout = async () => {
   await signOut(auth);
 }
 
-btnLogout.addEventListener("click", logout)
+//btnLogout.addEventListener("click", logout)
 
