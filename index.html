@@ -5,17 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, inital-scale=1.0" />
     <title>Book Catalog</title>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="style.css"/>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinysort/2.3.0/tinysort.js"></script>
   </head>
   <body class="light-theme">
-
     <div class="header">
       <div class="logo_btn">
-        <div class="untlogo"> <img src="images/UNTLogo.png" alt="UNT Logo" style="width:100px;height:100px"></div>
+        <div class="untlogo">
+          <img
+            src="images/UNTLogo.png"
+            alt="UNT Logo"
+            style="width: 100px; height: 100px"
+          />
+        </div>
         <h1>University of North Texas eLibrary</h1>
-        <div class="invisibleitem" style="width: 100px;height:100px"></div>
+        <div class="invisibleitem" style="width: 100px; height: 100px"></div>
       </div>
     </div>
 
@@ -24,59 +33,84 @@
       <a href="index.html">View eBook Catalog</a>
       <a href="reservestudyroom.html">Reserve Study Room</a>
       <div>
-      <button class="btn"><i class="uil uil-moon"></i>Dark Mode</button>
+        <button class="btn"><i class="uil uil-moon"></i>Dark Mode</button>
       </div>
     </div>
 
-    <div class="sortbar">
-      <button class="sortbutton"></i>A - Z</button>
-      <button class="sortbutton"></i>Z - A</button>
-    </div>
+    <button id="toggle" onclick="toggleSort()">Descending</button>
 
     <div class="rowcontainer">
-
-      <div class="thumbnail">
+      <div class="thumbnail" title="honeyandspice">
         <a href="honeyandspice.html">
-          <img src="images/HoneyandSpice.jpg" alt="Honey & Spice Book Cover" style="width:140px;height:auto" title="honeyandspice">
-       </a>
-       <p>Honey & Spice</p>
+          <img
+            src="images/HoneyandSpice.jpg"
+            alt="Honey & Spice Book Cover"
+            style="width: 140px; height: auto"
+            title="honeyandspice"
+          />
+        </a>
+        <p>Honey & Spice</p>
       </div>
 
-      <div class="thumbnail">
+      <div class="thumbnail" title="thelioness">
         <a href="thelioness.html">
-          <img src="images/TheLioness.jpg" alt="The Lioness Book Cover" style="width:140px;height:auto" title="thelioness">
+          <img
+            src="images/TheLioness.jpg"
+            alt="The Lioness Book Cover"
+            style="width: 140px; height: auto"
+            title="thelioness"
+          />
         </a>
         <p>The Lioness</p>
       </div>
 
-      <div class="thumbnail">
+      <div class="thumbnail" title="horse">
         <a href="horse.html">
-          <img src="images/Horse.jpg" alt="Horse Book Cover" style="width:140px;height:auto" title="horse">
+          <img
+            src="images/Horse.jpg"
+            alt="Horse Book Cover"
+            style="width: 140px; height: auto"
+            title="horse"
+          />
         </a>
         <p>Horse</p>
       </div>
 
-      <div class="thumbnail">
+      <div class="thumbnail" title="anotherfamily">
         <a href="anyotherfamily.html">
-          <img src="images/AnyOtherFamily.jpg" alt="Horse Book Cover" style="width:140px;height:auto" title="anotherfamily">
+          <img
+            src="images/AnyOtherFamily.jpg"
+            alt="Horse Book Cover"
+            style="width: 140px; height: auto"
+            title="anotherfamily"
+          />
         </a>
         <p>Any Other Family</p>
-      </div>      
+      </div>
 
-      <div class="thumbnail">
+      <div class="thumbnail" title="counterfeit">
         <a href="counterfeit.html">
-          <img src="images/Counterfeit.jpg" alt="Counterfeit Book Cover" style="width:140px;height:auto" title="counterfeit">
+          <img
+            src="images/Counterfeit.jpg"
+            alt="Counterfeit Book Cover"
+            style="width: 140px; height: auto"
+            title="counterfeit"
+          />
         </a>
         <p>Counterfeit</p>
-      </div> 
+      </div>
 
-      <div  class="thumbnail">
+      <div class="thumbnail" title="cultclassic">
         <a href="cultclassic.html">
-          <img src="images/CultClassic.jpg" alt="CultClassic Book Cover" style="width:140px;height:auto" title="cultclassic">
+          <img
+            src="images/CultClassic.jpg"
+            alt="CultClassic Book Cover"
+            style="width: 140px; height: auto"
+            title="cultclassic"
+          />
         </a>
         <p>Cult Classic</p>
-      </div> 
-
+      </div>
     </div>
 
     <script src="script.js"></script>
