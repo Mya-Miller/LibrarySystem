@@ -31,5 +31,13 @@ login.addEventListener("click", ( )=>{
   loginContainer.classList.remove("active");
 });
 
-let NodeList = document.querySelectorAll('.thumbnail')
-tinysort(NodeList, {attr: 'title'});
+function toggleSort() {
+	var btn = document.querySelector('#toggle');
+	if(btn.classList.toggle('desc')) {
+  	tinysort('div#rowcontainer>img',{order:'desc',attr:'title'});
+    btn.innerHTML = 'Ascending';
+  } else {
+  	tinysort('div#rowcontainer>img',{order:'asc',attr:'title'});
+    btn.innerHTML = 'Descending';
+  }
+}
