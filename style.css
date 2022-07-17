@@ -34,6 +34,8 @@ body {
     --navbarHoverFontColor: var(--black);
     --thumbnailBg: var(--white);
     --loginBg: var(--white);
+    --inputFieldBg: var(--white);
+    --inputIcon: var(--grey);
 }
 
 .dark-theme {
@@ -49,6 +51,8 @@ body {
     --navbarHoverFontColor: var(--black);
     --thumbnailBg: var(--grey);
     --loginBg: var(--grey);
+    --inputFieldBg: var(--grey);
+    --inputIcon: var(--white);
 }
 
 .logo_btn {
