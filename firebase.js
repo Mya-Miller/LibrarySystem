@@ -6,6 +6,7 @@ import {
   onAuthStateChanged, 
   connectAuthEmulator,
   setPersistence,
+  browserSessionPersistence,
   signOut 
 } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js';
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js';
@@ -55,7 +56,7 @@ const createAccount = async () => {
   try{
     const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then(function(result) {
-      return result.user.updateProfile({
+      updateProfile(auth.currentUser, {
         displayName: name
       })
     })
@@ -66,7 +67,6 @@ const createAccount = async () => {
   }
   catch(error) {
     console.log(error)
-    showLoginError(error)
   }
 
  
@@ -116,5 +116,5 @@ const logout = async () => {
   await signOut(auth);
 }
 
-//btnLogout.addEventListener("click", logout)
+btnLogout.addEventListener("click", logout)
 

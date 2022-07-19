@@ -148,3 +148,8 @@
     margin-top: 30px;
     text-align: center;
 }
+
+.logut {
+    display: flex;
+    justify-content: flex-start;
+}
