@@ -28,6 +28,7 @@ const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 //connectAuthEmulator(auth, "http://localhost:9099");
 
+//logs user in
 const loginEmailPassword = async () => {
   const loginEmail = txtLoginEmail.value
   const loginPassword = txtLoginPassword.value
@@ -38,10 +39,10 @@ const loginEmailPassword = async () => {
   try{
     const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     console.log(userCredential.user)
+    window.location.href = "index.html";
   }
   catch(error) {
     console.log('There was an error: ${error}')
-    showLoginError(error)
   }
 }
 
@@ -64,6 +65,7 @@ const createAccount = async () => {
       console.log(error);
     });
     console.log(userCredential.user)
+    window.location.href = "index.html";
   }
   catch(error) {
     console.log(error)
@@ -109,11 +111,9 @@ const monitorAuthState = async () => {
 
 monitorAuthState();
 
-
-
-
 const logout = async () => {
   await signOut(auth);
+  window.location.href = "index.html";
 }
 
 btnLogout.addEventListener("click", logout)

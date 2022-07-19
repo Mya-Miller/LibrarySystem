@@ -114,3 +114,21 @@ div.rowcontainer {
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+.logout input {
+    float: left;
+    top: 20px;
+    right: 250px;
+    height: 45px;
+    width: 100px;
+    /*border-radius: 50%;*/
+    border: none;
+    color: var(--white);
+    background-color: var(--navbarBg);
+}
+
+.logout input:hover{
+    background-color: var(--navbarHoverBg);
+    color: var(--navbarHoverFontColor);
+    height: 46.5px;
+}
