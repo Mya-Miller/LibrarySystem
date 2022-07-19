@@ -125,10 +125,37 @@ div.rowcontainer {
     border: none;
     color: var(--white);
     background-color: var(--navbarBg);
+
 }
 
 .logout input:hover{
     background-color: var(--navbarHoverBg);
     color: var(--navbarHoverFontColor);
     height: 46.5px;
+}
+
+/*.logintoggle {
+    max-width: 100px;
+    max-height: 45px;
+    width: 50%;
+    overflow: hidden;
+}*/
+
+.logintoggle.active .login {
+    margin-left: -50;
+    opacity: 1;
+}
+
+.logintoggle .login { 
+    opacity: 1;
+}
+
+.logintoggle .logout {
+    /**/
+    opacity: 1;
+}
+
+.logintoggle.active .logout {
+    margin-left: -50;
+    opacity: 1;
 }

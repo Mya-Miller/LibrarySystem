@@ -19,7 +19,6 @@ switcher.addEventListener('click', function() {
     console.log('current class name: ' + className);
 });
 
-
 const loginContainer = document.querySelector(".logincontainer");
 const register = document.querySelector(".register-link");
 const login = document.querySelector(".login-link");
