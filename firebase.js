@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword, 
   onAuthStateChanged, 
   connectAuthEmulator,
+  setPersistence,
   signOut 
 } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js';
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js';
@@ -45,39 +46,71 @@ const loginEmailPassword = async () => {
 
 btnLogin.addEventListener("click", loginEmailPassword);
 
+//creates new user account
 const createAccount = async () => {
   const loginEmail = txtRegisterEmail.value
   const loginPassword = txtRegisterPassword.value
+  const name = txtName.value
 
   try{
     const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
+    .then(function(result) {
+      return result.user.updateProfile({
+        displayName: name
+      })
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
     console.log(userCredential.user)
   }
   catch(error) {
     console.log(error)
     showLoginError(error)
   }
+
+ 
 }
 
+//listener for register button
 btnRegister.addEventListener("click", createAccount)
+
+const user = auth.currentUser;
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
-    if (user) {
+    if (user !== null) {
       console.log(user)
-      //showApp()
-      //showLoginState(user)
-
-     // hideLoginError()
+      const displayName = user.displayName;
+      const email = user.email;
+      const photoURL = user.photoURL;
+      const uid = user.uid;
     }
     else{
-      //showLoginForm()
       //lblAuthState.innerHTML = `You're not logged in.`
     }
+  });
+
+  setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return signInWithEmailAndPassword(auth, email, password);
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
   });
 }
 
 monitorAuthState();
+
+
+
 
 const logout = async () => {
   await signOut(auth);
