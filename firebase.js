@@ -7,6 +7,7 @@ import {
   connectAuthEmulator,
   setPersistence,
   browserSessionPersistence,
+  browserLocalPersistence,
   signOut 
 } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js';
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js';
@@ -98,7 +99,7 @@ const monitorAuthState = async () => {
     }
   });
 
-  setPersistence(auth, browserSessionPersistence)
+  setPersistence(auth, browserLocalPersistence)
   .then(() => {
     // Existing and future Auth states are now persisted in the current
     // session only. Closing the window would clear any existing state even
