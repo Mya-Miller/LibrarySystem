@@ -80,6 +80,9 @@ btnRegister.addEventListener("click", createAccount)
 const user = auth.currentUser;
 
 const monitorAuthState = async () => {
+
+  const loginToggle = document.querySelector('.logintoggle');
+
   onAuthStateChanged(auth, user => {
     if (user !== null) {
       console.log(user)
@@ -87,9 +90,11 @@ const monitorAuthState = async () => {
       const email = user.email;
       const photoURL = user.photoURL;
       const uid = user.uid;
+
+      loginToggle.classList.add("active");
     }
     else{
-      //lblAuthState.innerHTML = `You're not logged in.`
+      loginToggle.classList.remove("active");
     }
   });
 

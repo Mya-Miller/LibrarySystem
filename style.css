@@ -123,9 +123,10 @@ div.rowcontainer {
     width: 100px;
     /*border-radius: 50%;*/
     border: none;
+    cursor: pointer;
     color: var(--white);
     background-color: var(--navbarBg);
-
+    font-size: medium;
 }
 
 .logout input:hover{
@@ -141,21 +142,19 @@ div.rowcontainer {
     overflow: hidden;
 }*/
 
-.logintoggle.active .login {
-    margin-left: -50;
-    opacity: 1;
-}
 
-.logintoggle .login { 
-    opacity: 1;
-}
-
-.logintoggle .logout {
-    /**/
+.logintoggle.active .login { /*user is logged in*/
+    margin-left: -50%; /*moves regardless of active or inactive*/
     opacity: 1;
 }
 
 .logintoggle.active .logout {
-    margin-left: -50;
     opacity: 1;
+    display: block;
 }
+
+.logintoggle .logout { /*user is not logged in*/
+    opacity: 0;
+    display: none;
+}
+
