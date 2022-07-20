@@ -11,7 +11,6 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="firebase.js"></script>
-    <script src="script.js" async></script>
   </head>
   <body class="light-theme">
     <div class="header">
@@ -49,8 +48,37 @@
       </div>
     </div>
 
-    <button class="addbtn" type="button">Add to cart</button>
+     <!--
+    <div class="main">
+      <h2>Honey & Spice</h2>
+      <div class="bookcover">
+        <img
+          src="images/HoneyandSpice.jpg"
+          alt="Honey and Spice Book Cover"
+          style="width: 200px; height: auto"
+        />
+      </div>
+    </div>
+-->
 
+    <section class="container content-section">
+      <div class="shop-item">
+        <span class="shop-item-title">Honey & Spice</span>
+        <img
+          class="shop-item-image"
+          src="images/HoneyandSpice.jpg"
+          alt="Honey and Spice Book Cover"
+          style="width: 200px; height: auto"
+        />
+        <div class="shop-item-details">
+          <button class="btn btn-primary shop-item-button" type="button">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!--
     <div class="moreinfo">
       <div class="author">
         <h3>Author</h3>
@@ -87,5 +115,8 @@
         </p>
       </div>
     </div>
+  -->
+    <script src="script.js"></script>
+    <noscript>You need to enable JavaScript to view the full site.</noscript>
   </body>
 </html>
