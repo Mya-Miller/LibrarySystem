@@ -78,6 +78,21 @@ const createAccount = async () => {
 //listener for register button
 btnRegister.addEventListener("click", createAccount)
 
+setPersistence(auth, browserSessionPersistence)
+.then(() => {
+  // Existing and future Auth states are now persisted in the current
+  // session only. Closing the window would clear any existing state even
+  // if a user forgets to sign out.
+  // ...
+  // New sign-in will be persisted with session persistence.
+  return signInWithEmailAndPassword(auth, email, password);
+})
+.catch((error) => {
+  // Handle Errors here.
+  const errorCode = error.code;
+  const errorMessage = error.message;
+});
+
 const user = auth.currentUser;
 
 const monitorAuthState = async () => {
@@ -97,21 +112,6 @@ const monitorAuthState = async () => {
     else{
       loginToggle.classList.remove("active");
     }
-  });
-
-  setPersistence(auth, browserLocalPersistence)
-  .then(() => {
-    // Existing and future Auth states are now persisted in the current
-    // session only. Closing the window would clear any existing state even
-    // if a user forgets to sign out.
-    // ...
-    // New sign-in will be persisted with session persistence.
-    return signInWithEmailAndPassword(auth, email, password);
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
   });
 }
 
