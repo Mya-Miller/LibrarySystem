@@ -1,38 +1,311 @@
-.App {
+/**{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+*/
+.loginbody{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.logincontainer {
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  background: var(--loginBg);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 0 20px;
+}
+
+.logincontainer .forms {
+  display: flex;
+  align-items: center;
+  height: 440px;
+  width: 200%;
+  transition: height 0.2s ease;
+}
+
+.logincontainer .form {
+  width: 50%;
+  padding: 30px;
+  background-color: var(--loginBg);
+  transition: margin-left 0.18s ease;
+}
+
+.logincontainer.active .login {
+  margin-left: -50%;
+  opacity: 0;
+  transition: margin-left 0.18s ease, opacity 0.15s ease;
+}
+
+.logincontainer .register {
+  opacity: 0;
+  transition: opacity 0.09s ease;
+}
+
+.logincontainer.active .register {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.logincontainer.active .forms {
+  height: 600px;
+  width: 600px;
+}
+
+.logincontainer .form .title {
+  position: relative;
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.form .input-field {
+  position: relative;
+  height: 50px;
+  width: 80%;
+  margin-top: 30px;
+}
+
+.input-field input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0 35px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid transparent;
+  transition: all 0.2s ease;
+  background-color: var(--inputFieldBg);
+}
+
+.input-field input:is(:focus, :valid){
+  border-bottom-color: #4070f4;
+}
+
+
+.input-field i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: var(--inputIcon);
+  font-size: 23px;
+  transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) ~ i{
+  color: #4070f4;
+}
+
+.input-field i.icon{
+  left: 0;
+}
+
+.form .text{
+  color: #333;
+  font-size: 14px;
+}
+
+.form a.text{
+  color: #4070f4;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+
+.form .button{
+  margin-top: 35px;
+}
+
+
+.forms .button input {
+  border: none;
+  color: #fff;
+  width: 122%;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  background-color: #4070f4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button input:hover {
+  background-color: cadetblue;
+}
+
+.forms .login-register {
+  margin-top: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --darkgreen: #2d6a32; 
+  --grey: #787878;
+  --darkgrey: #4D4D4D;
+  --blue: #454FD9;
+  --darkergrey: #202124;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+body {
+  background: var(--bg);
+  color: var(--fontColor);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  padding: 4px;
+  color: var(--white);
+  background-color: var(--darkgreen);
+}
+
+.light-theme {
+  --bg: var(--white);
+  --fontColor: var(--black);
+  --btnBg: var(--black);
+  --btnFontColor: var(--white);
+  --headerBg: var(--darkgreen);
+  --headerFontColor: var(--black);
+  --navbarBg: var(--grey);
+  --navbarFontColor: var(--black);
+  --navbarHoverBg: var(--white);
+  --navbarHoverFontColor: var(--black);
+  --thumbnailBg: var(--white);
+  --loginBg: var(--white);
+  --inputFieldBg: var(--white);
+  --inputIcon: var(--grey);
+}
+
+.dark-theme {
+  --bg: var(--darkergrey);
+  --fontColor: var(--white);
+  --btnBg: var(--white);
+  --btnFontColor: var(--black);
+  --headerBg: var(--darkgreen);
+  --headerFontColor: var(--white);
+  --navbarBg: var(--darkgrey);
+  --navbarFontColor: var(--white);
+  --navbarHoverBg: var(--grey);
+  --navbarHoverFontColor: var(--black);
+  --thumbnailBg: var(--grey);
+  --loginBg: var(--grey);
+  --inputFieldBg: var(--grey);
+  --inputIcon: var(--white);
+}
+
+.logo_btn {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn {
+  /*display: flex;
+  justify-content: baseline;
+  align-items: center;*/
+  float: right;
+  top: 20px;
+  right: 250px;
+  height: 45px;
+  width: 100px;
+  /*border-radius: 50%;*/
+  border: none;
+  color: var(--btnFontColor);
+  background-color: var(--btnBg);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  overflow: hidden;
+  /*background-color: var(--navbarBg);*/
+  background-color: grey;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: var(--white);
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: var(--navbarHoverBg);
+  color: var(--navbarHoverFontColor);
+}
+
+.navbar a.right {
+  float: right;
+}
+
+div.thumbnail {
+  width: 140px;
+  background-color: var(--thumbnailBg);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+  
+}
+
+div.rowcontainer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.logout input {
+  float: left;
+  top: 20px;
+  right: 250px;
+  height: 45px;
+  width: 100px;
+  /*border-radius: 50%;*/
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--navbarBg);
+  font-size: medium;
+}
+
+.logout input:hover{
+  background-color: var(--navbarHoverBg);
+  color: var(--navbarHoverFontColor);
+  height: 46.5px;
+}
+
+/*.logintoggle {
+  max-width: 100px;
+  max-height: 45px;
+  width: 50%;
+  overflow: hidden;
+}*/
+
+
+.logintoggle.active .login { /*user is logged in*/
+  margin-left: -50%; /*moves regardless of active or inactive*/
+  opacity: 1;
+}
+
+.logintoggle.active .logout {
+  opacity: 1;
+  display: block;
+}
+
+.logintoggle .logout { /*user is not logged in*/
+  opacity: 0;
+  display: none;
 }
