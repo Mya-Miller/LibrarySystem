@@ -1,25 +1,62 @@
 import './login.css';
 import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
 function Login () {
-  const [IsAuth, SetIsAuth] = useState(false);
+  const [LoginPage, SetLoginPage] = useState(true);
+  const [email, SetEmail] = useState("");
+  const [password, SetPassword] = useState("");
+  let navigate = useNavigate();
+
+  function LoginHandler(event) {
+    event.preventDefault();
+    const authentication = getAuth();
+    signInWithEmailAndPassword(authentication, email, password)
+    .then((response) => {
+      navigate('/bookcatalog')
+      sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
+      console.log(sessionStorage.getItem('AuthToken'))
+    })
+  }
+
+  function RegisterHandler(event) {
+    event.preventDefault();
+    const authentication = getAuth();
+    createUserWithEmailAndPassword(authentication, email, password)
+    .then((response) => {
+      navigate('/bookcatalog')
+      sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
+      console.log(sessionStorage.getItem('AuthToken'))
+    })
+  }
+
+  function EmailFormHandler(event) {
+    SetEmail(event.target.value);
+  }
+
+  function PasswordFormHandler(event) {
+    SetPassword(event.target.value);
+  }
 
   return (
       <div className="loginbody">
         <div className="logincontainer">
           <div className="forms">
             {
-              IsAuth ?
+              LoginPage ?
               <div className="form login">
                 <span className="title">Login</span>
 
-                <form action="#">
+                <form action="#" onSubmit={LoginHandler}>
                   <div className="input-field">
                     <input
                       id="txtLoginEmail"
                       type="email"
                       placeholder="Enter your email"
                       required
+                      value={email}
+                      onChange={EmailFormHandler}
                     />
                     <i className="uil uil-envelope"></i>
                   </div>
@@ -31,19 +68,21 @@ function Login () {
                   className="password"
                   placeholder="Enter your password"
                   required
+                  value={password}
+                  onChange={PasswordFormHandler}
                 />
                 <i className="uil uil-lock"></i>
               </div>
 
               <div className="input-field button">
-                <input id="btnLogin" type="button" value="Login" />
+                <input id="btnLogin" type="submit" value="Login" />
               </div>
             </form>
 
             <div className="login-register">
               <span className="text"
                 >Don't have an account?
-                <p onClick={() => { SetIsAuth(!IsAuth); }} className="text register-link">Register now</p>
+                <p onClick={() => { SetLoginPage(!LoginPage); }} className="text register-link">Register now</p>
               </span>
             </div>
           </div>
@@ -51,7 +90,7 @@ function Login () {
           <div className="form registration">
             <span className="title">Registration</span>
 
-            <form action="#">
+            <form action="#" onSubmit={RegisterHandler}>
               <div className="input-field">
                 <input id="txtName" type="text" placeholder="Enter your name" required />
                 <i className="uil uil-user"></i>
@@ -63,6 +102,8 @@ function Login () {
                   type="email"
                   placeholder="Enter your email"
                   required
+                  value={email}
+                  onChange={EmailFormHandler}
                 />
                 <i className="uil uil-envelope"></i>
               </div>
@@ -74,18 +115,20 @@ function Login () {
                   className="password"
                   placeholder="Create your password"
                   required
+                  value={password}
+                  onChange={PasswordFormHandler}
                 />
                 <i className="uil uil-lock"></i>
               </div>
               <div className="input-field button">
-                <input id="btnRegister" type="button" value="Register" />
+                <input id="btnRegister" type="submit" value="Register" />
               </div>
             </form>
 
             <div className="login-register">
               <span className="text"
                 >Already have an account?
-                <p onClick={() => { SetIsAuth(!IsAuth); }} className="text login-link">Login now</p>
+                <p onClick={() => { SetLoginPage(!LoginPage); }} className="text login-link">Login now</p>
               </span>
             </div>
           </div>

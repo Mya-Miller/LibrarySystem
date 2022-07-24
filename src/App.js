@@ -1,22 +1,20 @@
 import './App.css';
-import {useState} from 'react';
 import UNTLogo from '../src/images/UNTLogo.png';
 import PrivateRoutes from '../src/components/PrivateRoutes';
 import LoginPage from '../src/pages/login';
 import BookcatalogPage from '../src/pages/bookcatalog';
 import CheckoutPage from '../src/pages/checkout';
 import NotFound404ErrorPage from '../src/pages/NotFound404ErrorPage';
+import { app } from './firebase';
 
 import {
 	BrowserRouter as Router,
 	Route,
 	Routes,
-  NavLink
+  NavLink,
 } from "react-router-dom";
 
 function App() {
-  const [IsAuth, SetIsAuth] = useState(false);
-
 
   return (
     <div className="App">
@@ -34,7 +32,7 @@ function App() {
         <nav className="navbar">
           <div className="logintoggle">
             {
-              IsAuth ? 
+              app.IsAuth ? 
               <div className="login">
                 <NavLink to="/login" className="login">Login</NavLink>
               </div>
@@ -45,7 +43,7 @@ function App() {
             }
           </div>
             <NavLink to="/bookcatalog">View eBook Catalog</NavLink>
-            <NavLink to="/checkout">Checkout</NavLink>
+            { app.IsAuth ? <NavLink to="/checkout">Checkout</NavLink> : <></> }
             <div>
               <button className="btn">Dark Mode</button>
             </div>
