@@ -36,7 +36,7 @@ function App() {
             {
               IsAuth ? 
               <div className="login">
-                <a href="login.html" className="login">Login</a>
+                <NavLink to="/login" className="login">Login</NavLink>
               </div>
               :
               <div className="logout">

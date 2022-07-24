@@ -1,23 +1,28 @@
 import './login.css';
+import {useState} from 'react';
 
-function login (){
-    return (
-        <div className="loginbody">
-      <div className="logincontainer">
-        <div className="forms">
-          <div className="form login">
-            <span className="title">Login</span>
+function Login () {
+  const [IsAuth, SetIsAuth] = useState(false);
 
-            <form action="#">
-              <div className="input-field">
-                <input
-                  id="txtLoginEmail"
-                  type="email"
-                  placeholder="Enter your email"
-                  required
-                />
-                <i className="uil uil-envelope"></i>
-              </div>
+  return (
+      <div className="loginbody">
+        <div className="logincontainer">
+          <div className="forms">
+            {
+              IsAuth ?
+              <div className="form login">
+                <span className="title">Login</span>
+
+                <form action="#">
+                  <div className="input-field">
+                    <input
+                      id="txtLoginEmail"
+                      type="email"
+                      placeholder="Enter your email"
+                      required
+                    />
+                    <i className="uil uil-envelope"></i>
+                  </div>
 
               <div className="input-field">
                 <input
@@ -38,11 +43,11 @@ function login (){
             <div className="login-register">
               <span className="text"
                 >Don't have an account?
-                <a href="#" className="text register-link">Register now</a>
+                <p onClick={() => { SetIsAuth(!IsAuth); }} className="text register-link">Register now</p>
               </span>
             </div>
           </div>
-
+        :
           <div className="form registration">
             <span className="title">Registration</span>
 
@@ -80,15 +85,15 @@ function login (){
             <div className="login-register">
               <span className="text"
                 >Already have an account?
-                <a href="#" className="text login-link">Login now</a>
+                <p onClick={() => { SetIsAuth(!IsAuth); }} className="text login-link">Login now</p>
               </span>
             </div>
           </div>
-        </div>
+        }
       </div>
     </div>
-    );
-
+  </div>
+  );
 }
 
-export default login;
+export default Login;
