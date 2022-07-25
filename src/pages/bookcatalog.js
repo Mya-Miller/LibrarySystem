@@ -13,8 +13,7 @@ function Bookcatalog() {
     const booksData = await BookCrudServices.getAllBooks();
     setBooks(booksData.docs.map((doc) => ({...doc.data(), id: doc.id})))
   }
-
-  console.log(books);
+  
   return (
     <>
       {
