@@ -1,10 +1,9 @@
 import { Outlet, Navigate } from 'react-router-dom';
-import { app } from '../firebase';
 
 function PrivateRoutes() {
-    let auth = app.IsAuth;
+    const IsAuth = sessionStorage.getItem('AuthToken');
     return (
-        auth ? <Outlet/> : <Navigate to="/" />
+        IsAuth ? <Outlet/> : <Navigate to="/" />
     );
 }
 

@@ -16,7 +16,6 @@ function Login () {
     .then((response) => {
       navigate('/bookcatalog')
       sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
-      console.log(sessionStorage.getItem('AuthToken'))
     })
   }
 

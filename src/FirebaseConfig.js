@@ -1,6 +1,7 @@
-import firebase from 'firebase'
-require('dotenv').config();
- 
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAnalytics } from 'firebase/analytics';
+
 const config = {
     apiKey: process.env.API_KEY,
     authDomain: process.env.AUTH_DOMAIN,
@@ -10,7 +11,7 @@ const config = {
     messagingSenderId: process.env.MESSAGIN_SENDER_ID,
     appId: process.env.APP_ID
 };
- 
-firebase.initializeApp(config);
- 
-export default firebase;
+
+export const app = initializeApp(config);
+export const db = getFirestore(app);
+export const analytics = getAnalytics(app);

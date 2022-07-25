@@ -1,27 +1,38 @@
+import { useEffect, useState } from "react";
 import Book from "../components/Book";
-import { db } from "../firebase";
-import { collection } from "firebase/firestore"; 
+import BookCrudServices from "../services/Book.crud.services";
 
-function bookcatalog() {
-  //const books = collection(db, "BookCatalog").get();
-  let books = [];
+function Bookcatalog() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    getBooks();  
+  },[]);
+
+  async function getBooks() {
+    const booksData = await BookCrudServices.getAllBooks();
+    setBooks(booksData.docs.map((doc) => ({...doc.data(), id: doc.id})))
+  }
+
+  console.log(books);
   return (
-    <div className="rowcontainer">
+    <>
       {
-        books.map((book) => {
-          return(
-            <Book 
-              Author={book.Author}
-              Description={book.Description}
+        books.map((book, index) => {
+          return (
+            <Book
+              key={book.id}
               Title={book.Title}
               Image={book.Image}
+              Description={book.Description}
+              Author={book.Author}
               Genre={book.Genre}
-              /> 
+            />
           );
         })
-      } 
-    </div> 
-  );
+      }
+    </>
+  )
 }
 
-export default bookcatalog;
+export default Bookcatalog;

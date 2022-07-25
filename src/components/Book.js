@@ -12,7 +12,7 @@ function Book (props) {
             <img
                 ref={imgRef}
                 onError={onImageError}
-                src={props.Image} 
+                src={`data:image/png;base64,${props.Image}`} 
                 alt={`book of ${props.Title}`}
                 style={{width: 140, height: "auto"}}
             />
