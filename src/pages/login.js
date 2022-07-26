@@ -81,9 +81,10 @@ function Login () {
             <div className="login-register">
               <span className="text"
                 >Don't have an account?
-                <p onClick={() => { SetLoginPage(!LoginPage); }} className="text register-link">Register now</p>
+                <p onClick={() => { SetLoginPage(!LoginPage); }} className="text-link register-link">Register now</p>
               </span>
             </div>
+
           </div>
         :
           <div className="form registration">
@@ -127,7 +128,7 @@ function Login () {
             <div className="login-register">
               <span className="text"
                 >Already have an account?
-                <p onClick={() => { SetLoginPage(!LoginPage); }} className="text login-link">Login now</p>
+                <p onClick={() => { SetLoginPage(!LoginPage); }} className="text-link login-link">Login now</p>
               </span>
             </div>
           </div>

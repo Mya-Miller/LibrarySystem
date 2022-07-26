@@ -32,6 +32,7 @@ function App() {
             />
           </div>
           <h1>University of North Texas eLibrary</h1>
+          <div className='spacingitem' style={{"width":100, "height": 100}}></div>
         </div>
         <nav className="navbar">
           <div className="logintoggle">
