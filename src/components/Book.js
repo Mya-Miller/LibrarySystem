@@ -5,6 +5,8 @@ import {useState} from 'react'
 
 function Book (props) {
     const imgRef = useRef();
+    const [buttonPopup, setButtonPopup] = useState(false);
+    
     function onImageError() {
         imgRef.current.src = DefaultImage;
     }
