@@ -22,7 +22,13 @@ function Book (props) {
             <p>{props.Title}</p>
             </button>
             <Popup tigger={buttonPopup} setTrigger ={setButtonPopup}>
-            <p>hello</p>
+            <p>
+                {props.Title}
+                {props.Description}
+                {props.id}
+                {props.Author}
+                {props.Genre}
+            </p>
             </Popup>
         </div>
 
