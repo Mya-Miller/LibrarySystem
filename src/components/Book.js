@@ -1,5 +1,7 @@
 import {useRef} from 'react';
 import DefaultImage from '../../src/images/book-icon-sign-design-260nw-553945819.webp';
+import React from 'react';
+import {useState} from 'react'
 
 function Book (props) {
     const imgRef = useRef();
@@ -9,6 +11,7 @@ function Book (props) {
 
     return (
         <div className="thumbnail">
+            <button onClick={() => setButtonPopup(true)}>
             <img
                 ref={imgRef}
                 onError={onImageError}
@@ -17,9 +20,24 @@ function Book (props) {
                 style={{width: 140, height: "auto"}}
             />
             <p>{props.Title}</p>
+            </button>
+            <Popup tigger={buttonPopup} setTrigger ={setButtonPopup}>
+            <p>hello</p>
+            </Popup>
         </div>
 
     );
+}
+
+function Popup(props){
+    return( props.trigger) ? (
+        <div className='popup'> 
+        <div className='popup-inner'>
+            <button className='close-btn' onClick={() => props.setTrigger(false)}>close</button>
+            {props.children}
+        </div>
+        </div>
+    ) : "";
 }
 
 export default Book;
