@@ -1,7 +1,8 @@
 import {useRef} from 'react';
 import DefaultImage from '../../src/images/book-icon-sign-design-260nw-553945819.webp';
 import React from 'react';
-import {useState} from 'react'
+import {useState} from 'react';
+import './Book.css';
 
 function Book (props) {
     const imgRef = useRef();
