@@ -2,6 +2,9 @@ import './login.css';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { UilEnvelope } from '@iconscout/react-unicons'
+import { UilLock } from '@iconscout/react-unicons'
+import { UilUser } from '@iconscout/react-unicons'
 
 function Login () {
   const [LoginPage, SetLoginPage] = useState(true);
@@ -38,6 +41,17 @@ function Login () {
     SetPassword(event.target.value);
   }
 
+  function addActive(event) {
+    const loginContainer = document.querySelector(".logincontainer");
+    loginContainer.classList.add("active");
+  }
+
+  function removeActive(event) {
+    const loginContainer = document.querySelector(".logincontainer");
+    loginContainer.classList.remove("active");
+  }
+  
+
   return (
       <div className="loginbody">
         <div className="logincontainer">
@@ -57,7 +71,7 @@ function Login () {
                       value={email}
                       onChange={EmailFormHandler}
                     />
-                    <i className="uil uil-envelope"></i>
+                    <div className="icon"><UilEnvelope /></div>
                   </div>
 
               <div className="input-field">
@@ -70,7 +84,7 @@ function Login () {
                   value={password}
                   onChange={PasswordFormHandler}
                 />
-                <i className="uil uil-lock"></i>
+                <div className="icon"><UilLock /></div>
               </div>
 
               <div className="input-field button">
@@ -81,9 +95,10 @@ function Login () {
             <div className="login-register">
               <span className="text"
                 >Don't have an account?
-                <p onClick={() => { SetLoginPage(!LoginPage); }} className="text register-link">Register now</p>
+                <p onClick={() => { SetLoginPage(!LoginPage); addActive(); }} className="text-link register-link">Register now</p>
               </span>
             </div>
+
           </div>
         :
           <div className="form registration">
@@ -92,7 +107,7 @@ function Login () {
             <form action="#" onSubmit={RegisterHandler}>
               <div className="input-field">
                 <input id="txtName" type="text" placeholder="Enter your name" required />
-                <i className="uil uil-user"></i>
+                <div className="icon"><UilUser /></div>
               </div>
 
               <div className="input-field">
@@ -104,7 +119,7 @@ function Login () {
                   value={email}
                   onChange={EmailFormHandler}
                 />
-                <i className="uil uil-envelope"></i>
+                <div className="icon"><UilEnvelope /></div>
               </div>
 
               <div className="input-field">
@@ -117,7 +132,7 @@ function Login () {
                   value={password}
                   onChange={PasswordFormHandler}
                 />
-                <i className="uil uil-lock"></i>
+                <div className="icon"><UilLock /></div>
               </div>
               <div className="input-field button">
                 <input id="btnRegister" type="submit" value="Register" />
@@ -127,7 +142,7 @@ function Login () {
             <div className="login-register">
               <span className="text"
                 >Already have an account?
-                <p onClick={() => { SetLoginPage(!LoginPage); }} className="text login-link">Login now</p>
+                <p onClick={() => { SetLoginPage(!LoginPage); removeActive(); }} className="text-link login-link">Login now</p>
               </span>
             </div>
           </div>
