@@ -1,10 +1,3 @@
-/**{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-*/
 .loginbody{
     height: 100vh;
     display: flex;
@@ -55,8 +48,15 @@
 }
 
 .logincontainer.active .forms {
-    height: 600px;
+    height: 520px; /*update height if adding confirm password*/
     width: 600px;
+}
+
+.logincontainer.active .form {
+    width: 71%;
+    padding: 30px;
+    background-color: var(--loginBg);
+    transition: margin-left 0.18s ease;
 }
 
 .logincontainer .form .title {
@@ -91,22 +91,19 @@
 }
 
 
-.input-field i {
+.input-field .icon {
     position: absolute;
     top: 50%;
+    bottom: 0;
     left: 0;
     transform: translateY(-50%);
-    color: var(--inputIcon);
-    font-size: 23px;
+    /*color: var(--inputIcon);*/
+    color: var(--grey);
     transition: all 0.2s ease;
 }
 
 .input-field input:is(:focus, :valid) ~ i{
     color: #4070f4;
-}
-
-.input-field i.icon{
-    left: 0;
 }
 
 .form .text{
@@ -152,6 +149,8 @@
 }
 
 .forms .text .text-link {
+    display: flex;
+    justify-content: center;
     color: #4070f4;
 }
 
