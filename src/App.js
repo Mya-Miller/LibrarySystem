@@ -5,6 +5,7 @@ import LoginPage from '../src/pages/login';
 import BookcatalogPage from '../src/pages/bookcatalog';
 import CheckoutPage from '../src/pages/checkout';
 import NotFound404ErrorPage from '../src/pages/NotFound404ErrorPage';
+import {useEffect, useState} from 'react';
 
 import {
 	BrowserRouter as Router,
@@ -19,6 +20,21 @@ function App() {
   function handleLogout() {
     sessionStorage.removeItem('AuthToken');
   }
+
+  const [theme, SetDarkTheme] = useState(false)
+  useEffect(() => {
+    document.body.classList.toggle('dark-theme', theme);
+
+    const themeBtn = document.querySelector('.btn');
+
+    const className = document.body.className;
+    if (className === "dark-theme"){
+      themeBtn.textContent = "Light Mode";
+    }
+    else {
+      themeBtn.textContent = "Dark Mode";
+    }
+  },[theme])
 
   return (
     <div className="App">
@@ -50,7 +66,7 @@ function App() {
             <NavLink to="/bookcatalog">View eBook Catalog</NavLink>
             { IsAuth ? <NavLink to="/checkout">Checkout</NavLink> : <></> }
             <div>
-              <button className="btn">Dark Mode</button>
+              <button onClick={() => { SetDarkTheme(!theme) }} className="btn">Dark Mode</button> {/*add something here for both buttons maybe*/}
             </div>
         </nav>
           <Routes>
@@ -64,6 +80,7 @@ function App() {
           </Routes>
         </Router>
     </div>
+    
   );
 }
 

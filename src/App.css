@@ -8,20 +8,30 @@
   --darkergrey: #202124;
 }
 
-
 body {
   background: var(--bg);
   color: var(--fontColor);
   font-family: Arial, Helvetica, sans-serif;
+
+  --bg: var(--white);
+  --fontColor: var(--black);
+  --btnBg: var(--black);
+  --btnFontColor: var(--white);
+  --headerBg: var(--darkgreen);
+  --headerFontColor: var(--white);
+  --navbarBg: var(--grey);
+  --navbarFontColor: var(--white);
+  --navbarHoverBg: var(--white);
+  --navbarHoverFontColor: var(--black);
+  --thumbnailBg: var(--white);
+  --loginBg: var(--white);
+  --inputFieldBg: var(--white);
+  --inputIcon: #ccc;
+  --loginregisterlink: var(--blue);
+  --loginregisterborder: var(--grey);
 }
 
-.header {
-  padding: 4px;
-  color: var(--white);
-  background-color: var(--darkgreen);
-}
-
-.light-theme {
+/*.light-theme {
   --bg: var(--white);
   --fontColor: var(--black);
   --btnBg: var(--black);
@@ -36,7 +46,7 @@ body {
   --loginBg: var(--white);
   --inputFieldBg: var(--white);
   --inputIcon: var(--grey);
-}
+}*/
 
 .dark-theme {
   --bg: var(--darkergrey);
@@ -47,30 +57,32 @@ body {
   --headerFontColor: var(--white);
   --navbarBg: var(--darkgrey);
   --navbarFontColor: var(--white);
-  --navbarHoverBg: var(--grey);
-  --navbarHoverFontColor: var(--black);
+  --navbarHoverBg: var(--darkergrey);
+  --navbarHoverFontColor: var(--white);
   --thumbnailBg: var(--grey);
   --loginBg: var(--grey);
   --inputFieldBg: var(--grey);
   --inputIcon: var(--white);
+  --loginregisterlink: var(--white);
+  --loginregisterborder: var(--white);
 }
 
-.logo_btn {
+.logo_btn { /*this is actually formatting for the entire header */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 4px;
+  color: var(--headerFontColor);
+  background-color: var(--headerBg);
+  
 }
 
 .btn {
-  /*display: flex;
-  justify-content: baseline;
-  align-items: center;*/
   float: right;
   top: 20px;
   right: 250px;
   height: 45px;
   width: 100px;
-  /*border-radius: 50%;*/
   border: none;
   color: var(--btnFontColor);
   background-color: var(--btnBg);
@@ -78,15 +90,14 @@ body {
 
 .navbar {
   overflow: hidden;
-  /*background-color: var(--navbarBg);*/
-  background-color: darkgray;
+  background-color: var(--navbarBg);
   color:rgba(0, 0, 0, 1);
 }
 
 .navbar a {
   float: left;
   display: block;
-  color: var(--white);
+  color: var(--navbarFontColor);
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
@@ -123,10 +134,9 @@ div.rowcontainer {
   right: 250px;
   height: 45px;
   width: 100px;
-  /*border-radius: 50%;*/
   border: none;
   cursor: pointer;
-  color: var(--white);
+  color: var(--navbarFontColor);
   background-color: var(--navbarBg);
   font-size: medium;
 }
@@ -136,14 +146,6 @@ div.rowcontainer {
   color: var(--navbarHoverFontColor);
   height: 46.5px;
 }
-
-/*.logintoggle {
-  max-width: 100px;
-  max-height: 45px;
-  width: 50%;
-  overflow: hidden;
-}*/
-
 
 .logintoggle.active .login { /*user is logged in*/
   margin-left: -50%; /*moves regardless of active or inactive*/
