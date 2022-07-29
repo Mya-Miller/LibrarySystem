@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Book from "../components/Book";
 import BookCrudServices from "../services/Book.crud.services";
+import "./bookcatalog.css";
 
 function Bookcatalog() {
   const [books, setBooks] = useState([]);
@@ -15,7 +16,7 @@ function Bookcatalog() {
   }
   
   return (
-    <>
+    <div id="bookCatalogRow">
       {
         books.map((book, index) => {
           return (
@@ -30,7 +31,7 @@ function Bookcatalog() {
           );
         })
       }
-    </>
+    </div>
   )
 }
 
