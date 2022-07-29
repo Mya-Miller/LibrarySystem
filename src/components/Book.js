@@ -24,14 +24,16 @@ function Book (props) {
                 <button>
                     {props.Title}
                 </button> 
-            } position="right center">
-                <p>
-                    {props.Title}<br></br>
-                    {props.Description}<br></br>
-                    {props.id}<br></br>
-                    {props.Author}<br></br>
-                    {props.Genre}<br></br>
-                </p>
+            } position="center center">
+                <div id="bookPopup">
+                    <p>
+                        {props.Title}<br></br>
+                        {props.Description}<br></br>
+                        {props.id}<br></br>
+                        {props.Author}<br></br>
+                        {props.Genre}<br></br>
+                    </p>
+                </div>
             </Popup>
         </div>
     );
