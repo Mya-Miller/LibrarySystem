@@ -18,6 +18,7 @@ function Login () {
     signInWithEmailAndPassword(authentication, email, password)
     .then((response) => {
       navigate('/bookcatalog')
+      window.location.reload(1);
       sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
     })
   }
@@ -61,7 +62,7 @@ function Login () {
               <div className="form login">
                 <span className="title">Login</span>
 
-                <form action="#" onSubmit={LoginHandler}>
+                <form onSubmit={LoginHandler}>
                   <div className="input-field">
                     <input
                       id="txtLoginEmail"
@@ -104,7 +105,7 @@ function Login () {
           <div className="form registration">
             <span className="title">Registration</span>
 
-            <form action="#" onSubmit={RegisterHandler}>
+            <form onSubmit={RegisterHandler}>
               <div className="input-field">
                 <input id="txtName" type="text" placeholder="Enter your name" required />
                 <div className="icon"><UilUser /></div>

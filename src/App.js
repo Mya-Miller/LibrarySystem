@@ -19,6 +19,7 @@ function App() {
 
   function handleLogout() {
     sessionStorage.removeItem('AuthToken');
+    window.location.reload(1);
   }
 
   const [theme, SetDarkTheme] = useState(false)
@@ -53,18 +54,18 @@ function App() {
         <nav className="navbar">
           <div className="logintoggle">
             {
-              IsAuth ? 
+              (IsAuth === null) ? 
               <div className="login">
-                <NavLink to="/" onClick={handleLogout} className="login">Logout</NavLink>
+                <NavLink to="/login" className="login">Login</NavLink>
               </div>
               :
               <div className="login">
-                <NavLink to="/login" className="login">Login</NavLink>
+                <NavLink to="/" onClick={handleLogout} className="login">Logout</NavLink>
               </div>
             }
           </div>
             <NavLink to="/bookcatalog">View eBook Catalog</NavLink>
-            { IsAuth ? <NavLink to="/checkout">Checkout</NavLink> : <></> }
+            { (IsAuth === null) ? <></> : <NavLink to="/checkout">Checkout</NavLink> }
             <div>
               <button onClick={() => { SetDarkTheme(!theme) }} className="btn">Dark Mode</button> {/*add something here for both buttons maybe*/}
             </div>
@@ -80,7 +81,6 @@ function App() {
           </Routes>
         </Router>
     </div>
-    
   );
 }
 
