@@ -1,3 +1,27 @@
+div.thumbnail {
+    width: 140px;
+    background-color: var(--thumbnailBg);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.booktitle {
+    font-size: medium;
+    max-height: 40px;
+    overflow: hidden;
+    color: var(--fontColor);
+}
+
+.bookBtn {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .popup {
     position: fixed;
     top: 0;
@@ -26,13 +50,29 @@
 }
 
 .popup-content {
-    top: 65vh !important;
+    /*top: 65vh !important;*/
     left: 0 !important;
     margin: 3em;
 }
 
 
 #bookPopup {
-    background-color: #fff;
+    background-color: var(--thumbnailBg);
     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.popupheader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addtocart {
+    top: 20px;
+    right: 250px;
+    height: 45px;
+    width: 90px;
+    cursor: pointer;
+    align-self: center;
 }

@@ -89,7 +89,7 @@
 }
 
 .input-field input::placeholder {
-    color: var(--fontColor);
+    color: var(--placeholderColor);
 }
 
 .input-field input:is(:focus, :valid){
