@@ -28,7 +28,7 @@ body {
   --inputFieldBg: var(--white);
   --inputIcon: #ccc;
   --loginregisterlink: var(--blue);
-  --loginregisterborder: var(--grey);
+  --loginregisterfocus: var(--grey);
 }
 
 /*.light-theme {
@@ -64,7 +64,7 @@ body {
   --inputFieldBg: var(--grey);
   --inputIcon: var(--white);
   --loginregisterlink: var(--white);
-  --loginregisterborder: var(--white);
+  --loginregisterfocus: var(--white);
 }
 
 .logo_btn { /*this is actually formatting for the entire header */
@@ -120,12 +120,6 @@ div.thumbnail {
   margin-bottom: 25px;
   text-align: center;
   
-}
-
-div.rowcontainer {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
 }
 
 .logout input {

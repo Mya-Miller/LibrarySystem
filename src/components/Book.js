@@ -13,16 +13,16 @@ function Book (props) {
 
     return (
         <div className="thumbnail">
-            <img
-                ref={imgRef}
-                onError={onImageError}
-                src={`data:image/png;base64,${props.Image}`} 
-                alt={`book of ${props.Title}`}
-                style={{width: 140, height: "auto"}}
-            />
             <Popup trigger={
-                <button>
-                    {props.Title}
+                <button className='bookBtn'>
+                    <img
+                        ref={imgRef}
+                        onError={onImageError}
+                        src={`data:image/png;base64,${props.Image}`} 
+                        alt={`book of ${props.Title}`}
+                        style={{width: 140, height: "auto"}}
+                    />
+                    <p className='booktitle'>{props.Title}</p>
                 </button> 
             } position="center center">
                 <div id="bookPopup">

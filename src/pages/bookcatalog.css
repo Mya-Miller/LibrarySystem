@@ -2,5 +2,6 @@
     display: flex;
     gap: 3em;
     margin: 3em;
-    overflow-x: scroll;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }

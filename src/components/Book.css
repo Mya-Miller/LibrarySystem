@@ -1,3 +1,24 @@
+div.thumbnail {
+    width: 140px;
+    background-color: var(--thumbnailBg);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    
+}
+
+.booktitle {
+    font-size: medium;
+}
+
+.bookBtn {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
 .popup {
     position: fixed;
     top: 0;
