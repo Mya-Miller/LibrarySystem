@@ -58,4 +58,20 @@ div.thumbnail {
 #bookPopup {
     background-color: #fff;
     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.popupheader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addtocart {
+    top: 20px;
+    right: 250px;
+    height: 45px;
+    width: 90px;
+    cursor: pointer;
+    align-self: center;
 }
