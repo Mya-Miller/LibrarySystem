@@ -5,11 +5,12 @@ div.thumbnail {
     margin-top: 25px;
     margin-bottom: 25px;
     text-align: center;
-    
 }
 
 .booktitle {
     font-size: medium;
+    max-height: 40px;
+    overflow: hidden;
 }
 
 .bookBtn {
@@ -17,6 +18,7 @@ div.thumbnail {
     padding: 0;
     background: none;
     border: none;
+    cursor: pointer;
 }
 
 .popup {

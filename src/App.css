@@ -86,6 +86,7 @@ body {
   border: none;
   color: var(--btnFontColor);
   background-color: var(--btnBg);
+  cursor: pointer;
 }
 
 .navbar {
@@ -110,16 +111,6 @@ body {
 
 .navbar a.right {
   float: right;
-}
-
-div.thumbnail {
-  width: 140px;
-  background-color: var(--thumbnailBg);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-top: 25px;
-  margin-bottom: 25px;
-  text-align: center;
-  
 }
 
 .logout input {
