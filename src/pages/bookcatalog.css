@@ -1,0 +1,6 @@
+#bookCatalogRow {
+    display: flex;
+    gap: 3em;
+    margin: 3em;
+    overflow-x: scroll;
+}

@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "@iconscout/react-unicons": "^1.1.6",
-    "@react-query-firebase/analytics": "^0.1.1",
-    "@react-query-firebase/firestore": "^1.0.0-dev.6",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,7 +17,12 @@
     "reactjs-popup": "^2.0.5",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  },
   "scripts": {
+    "lint": "prettier -c \"src/**/*.js\" && eslint \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.js\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
