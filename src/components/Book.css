@@ -50,14 +50,14 @@ div.thumbnail {
 }
 
 .popup-content {
-    top: 65vh !important;
+    /*top: 65vh !important;*/
     left: 0 !important;
     margin: 3em;
 }
 
 
 #bookPopup {
-    background-color: #fff;
+    background-color: var(--thumbnailBg);
     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
     padding-left: 4px;
     padding-right: 4px;
