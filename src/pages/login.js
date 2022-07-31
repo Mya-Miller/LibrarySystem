@@ -72,6 +72,7 @@ function Login () {
                       value={email}
                       onChange={EmailFormHandler}
                     />
+                    <label for="txtLoginEmail">Email</label>
                     <div className="icon"><UilEnvelope /></div>
                   </div>
 
@@ -85,6 +86,7 @@ function Login () {
                   value={password}
                   onChange={PasswordFormHandler}
                 />
+                <label for="txtLoginPassword">Password</label>
                 <div className="icon"><UilLock /></div>
               </div>
 
@@ -107,7 +109,13 @@ function Login () {
 
             <form onSubmit={RegisterHandler}>
               <div className="input-field">
-                <input id="txtName" type="text" placeholder="Enter your name" required />
+                <input 
+                  id="txtName" 
+                  type="text" 
+                  placeholder="Enter your name" 
+                  required 
+                />
+                <label for="txtName">Name</label>
                 <div className="icon"><UilUser /></div>
               </div>
 
@@ -120,6 +128,7 @@ function Login () {
                   value={email}
                   onChange={EmailFormHandler}
                 />
+                <label for="RegisterEmail">Email</label>
                 <div className="icon"><UilEnvelope /></div>
               </div>
 
@@ -133,6 +142,7 @@ function Login () {
                   value={password}
                   onChange={PasswordFormHandler}
                 />
+                <label for="txtRegisterPassword">Password</label>
                 <div className="icon"><UilLock /></div>
               </div>
               <div className="input-field button">
