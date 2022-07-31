@@ -16,15 +16,31 @@ function Bookcatalog() {
   }
 
   function sortAscending() {
-   
+    const ascending = [...books].sort((a,b) => {
+      return a.Title > b.Title ? 1 : -1
+    })
+    setBooks(ascending)
   }
 
   function sortDescending() {
-    
+    const descending = [...books].sort((a,b) => {
+      return a.Title < b.Title ? 1 : -1
+    })
+    setBooks(descending)
   }
 
   function sortAuthor() {
-    
+    const author = [...books].sort((a,b) => {
+      return a.Author > b.Author ? 1 : -1
+    })
+    setBooks(author)
+  }
+
+  function sortGenre() {
+    const author = [...books].sort((a,b) => {
+      return a.Genre > b.Genre ? 1 : -1
+    })
+    setBooks(author)
   }
   
   return (
@@ -33,6 +49,7 @@ function Bookcatalog() {
       <div className="sortBtn"><button onClick={() => { sortAscending() }} className="Ascending">Ascending</button></div>
       <div className="sortBtn"><button onClick={() => { sortDescending() }} className="Descending">Descending</button></div>
       <div className="sortBtn"><button onClick={() => { sortAuthor() }} className="Author">Author</button></div>
+      <div className="sortBtn"><button onClick={() => { sortGenre() }} className="Genre">Genre</button></div>
       </div>
       <div id="bookCatalogRow">
         {
