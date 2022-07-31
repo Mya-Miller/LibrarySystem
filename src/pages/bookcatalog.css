@@ -5,3 +5,11 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+.sortbtncontainer {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 4px;
+    padding-left: 4px;
+    gap: 1em;
+}
