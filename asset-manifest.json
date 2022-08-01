@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/LibrarySystem/static/css/main.06336b67.css",
-    "main.js": "/LibrarySystem/static/js/main.a880bef0.js",
-    "static/js/787.590847e5.chunk.js": "/LibrarySystem/static/js/787.590847e5.chunk.js",
-    "static/media/book-icon-sign-design-260nw-553945819.webp": "/LibrarySystem/static/media/book-icon-sign-design-260nw-553945819.1fafb3b6b81192a7a161.webp",
-    "index.html": "/LibrarySystem/index.html",
-    "main.06336b67.css.map": "/LibrarySystem/static/css/main.06336b67.css.map",
-    "main.a880bef0.js.map": "/LibrarySystem/static/js/main.a880bef0.js.map",
-    "787.590847e5.chunk.js.map": "/LibrarySystem/static/js/787.590847e5.chunk.js.map"
+    "main.css": "/bookcatalog/static/css/main.06336b67.css",
+    "main.js": "/bookcatalog/static/js/main.e5f35b37.js",
+    "static/js/787.590847e5.chunk.js": "/bookcatalog/static/js/787.590847e5.chunk.js",
+    "static/media/book-icon-sign-design-260nw-553945819.webp": "/bookcatalog/static/media/book-icon-sign-design-260nw-553945819.1fafb3b6b81192a7a161.webp",
+    "index.html": "/bookcatalog/index.html",
+    "main.06336b67.css.map": "/bookcatalog/static/css/main.06336b67.css.map",
+    "main.e5f35b37.js.map": "/bookcatalog/static/js/main.e5f35b37.js.map",
+    "787.590847e5.chunk.js.map": "/bookcatalog/static/js/787.590847e5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06336b67.css",
-    "static/js/main.a880bef0.js"
+    "static/js/main.e5f35b37.js"
   ]
 }
