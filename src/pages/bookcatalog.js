@@ -42,6 +42,13 @@ function Bookcatalog() {
     })
     setBooks(author)
   }
+
+  function sortISBN() {
+    const isbn = [...books].sort((a,b) => {
+      return a.id > b.id ? 1 : -1
+    })
+    setBooks(isbn)
+  }
   
   return (
     <div className="catalog">
@@ -53,6 +60,7 @@ function Bookcatalog() {
       <button onClick={() => { sortDescending() }} className="sortBtn Descending">Descending</button>
       <button onClick={() => { sortAuthor() }} className="sortBtn Author">Author</button>
       <button onClick={() => { sortGenre() }} className="sortBtn Genre">Genre</button>
+      <button onClick={() => { sortISBN() }} className="sortBtn ISBN">ISBN</button>
       </div>
       {/*</div>
       </div>*/}
