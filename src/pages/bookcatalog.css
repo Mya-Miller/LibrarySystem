@@ -1,7 +1,65 @@
 #bookCatalogRow {
     display: flex;
     gap: 3em;
-    margin: 3em;
+    /*margin: 3em;*/
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 3em;
+    margin-top: 1.5em;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+.sortbtncontainer {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-left: 6px;
+    gap: 1em;
+}
+
+.sortBtn {
+    height: 40px;
+    width: 90px;
+    color: var(--fontColor);
+    border-radius: 5px;
+    border: 1.5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background-color: var(--thumbnailBg);
+    cursor: pointer;
+}
+/*
+.dropdown {
+    position: inline;
+    display: inline-block;
+}
+
+.dropdownBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.sortoptions {
+    display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.sortoptions .sortBtn {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .sortoptions {
+    display: block;
+}
+*/
