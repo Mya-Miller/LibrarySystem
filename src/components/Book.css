@@ -22,30 +22,6 @@ div.thumbnail {
     cursor: pointer;
 }
 
-/*.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}*/
-
-/*.popup-inner {
-    position: relative;
-    padding: 32px;
-    width: 100%;
-    max-width: 640px;
-    background-color: #fff;
-}
-
-.popup-inner.close-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-}*/
-
 .popup-content {
     /*top: 5% !important;*/
     position: fixed;
@@ -63,7 +39,6 @@ div.thumbnail {
     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
     padding-left: 4px;
     padding-right: 4px;
-
 }
 
 .popupheader {
