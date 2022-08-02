@@ -1,6 +1,7 @@
 {
   "name": "library-system",
   "version": "0.1.0",
+  "homepage": "https://github.com/Mya-Miller/LibrarySystem/",
   "private": true,
   "dependencies": {
     "@iconscout/react-unicons": "^1.1.6",
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.0.1",
     "firebase": "^9.9.1",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^4.0.0",
@@ -23,6 +25,8 @@
   "scripts": {
     "lint": "prettier -c \"src/**/*.js\" && eslint \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
