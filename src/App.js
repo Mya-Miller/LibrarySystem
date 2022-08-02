@@ -12,6 +12,7 @@ import {
 	Route,
 	Routes,
   NavLink,
+  HashRouter,
 } from "react-router-dom";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router className="header">
+      <HashRouter className="header">
         <div className="logo_btn">
           <div className="untlogo">
             <img
@@ -79,7 +80,7 @@ function App() {
             </Route>
             <Route path='*' element={<NotFound404ErrorPage />} />
           </Routes>
-        </Router>
+        </HashRouter>
     </div>
   );
 }
