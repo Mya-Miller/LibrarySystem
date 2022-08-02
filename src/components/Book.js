@@ -1,5 +1,5 @@
 import {useRef} from 'react';
-import DefaultImage from '../../src/images/book-icon-sign-design-260nw-553945819.webp';
+import DefaultImage from '../../src/images/DefaultBook.jpg';
 import React from 'react';
 import Popup from 'reactjs-popup';
 import './Book.css';
