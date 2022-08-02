@@ -1,10 +1,12 @@
 import {useRef} from 'react';
-import DefaultImage from '../../src/images/book-icon-sign-design-260nw-553945819.webp';
+import DefaultImage from '../../src/images/DefaultBook.jpg';
 import React from 'react';
 import Popup from 'reactjs-popup';
 import './Book.css';
 
 function Book (props) {
+    const IsAuth = sessionStorage.getItem('AuthToken');
+
     const imgRef = useRef();
     
     function onImageError() {
@@ -32,7 +34,7 @@ function Book (props) {
                         <h2>{props.Author}</h2>
                         <h3>{props.Genre}</h3>
                         </div>
-                        <button className='addtocart'>Add to Cart</button>
+                        { (IsAuth === null) ? <></> : <button className='addtocart'>Add to Cart</button> }
                         </div>
                         <p>
                         {props.Description}<br></br>
@@ -43,16 +45,5 @@ function Book (props) {
         </div>
     );
 }
-
-// function Popup(props){
-//     return( props.trigger) ? (
-//         <div className='popup'> 
-//         <div className='popup-inner'>
-//             <button className='close-btn' onClick={() => props.setTrigger(false)}>close</button>
-//             {props.children}
-//         </div>
-//         </div>
-//     ) : "";
-// }
 
 export default Book;
