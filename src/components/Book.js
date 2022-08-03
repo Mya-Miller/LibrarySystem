@@ -3,6 +3,16 @@ import DefaultImage from '../../src/images/DefaultBook.jpg';
 import React from 'react';
 import Popup from 'reactjs-popup';
 import './Book.css';
+import {db} from '../FirebaseConfig';
+import { 
+    collection, 
+    getDocs, 
+    getDoc, 
+    setDoc, 
+    updateDoc, 
+    deleteDoc, 
+    doc 
+} from 'firebase/firestore';
 
 function Book (props) {
     const IsAuth = sessionStorage.getItem('AuthToken');
@@ -11,6 +21,16 @@ function Book (props) {
     
     function onImageError() {
         imgRef.current.src = DefaultImage;
+    }
+    
+    function AddtoCart() {
+        setDoc(doc(db, "Cart", props.Title), {
+            Author: props.Author,
+            Description: props.Description,
+            Genre: props.Genre,
+            Image: props.Image,
+            Title: props.Title
+        });
     }
 
     return (
@@ -34,7 +54,7 @@ function Book (props) {
                         <h2>{props.Author}</h2>
                         <h3>{props.Genre}</h3>
                         </div>
-                        { (IsAuth === null) ? <></> : <button className='addtocart'>Add to Cart</button> }
+                        { (IsAuth === null) ? <></> : <button onClick={() => { AddtoCart() }} className='addtocart'>Add to Cart</button> }
                         </div>
                         <p>
                         {props.Description}<br></br>
