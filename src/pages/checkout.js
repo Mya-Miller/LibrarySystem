@@ -1,18 +1,45 @@
+import { useEffect, useState } from "react";
+import Book from "../components/Book";
+import CheckoutServices from "../services/Checkout.services";
 import './checkout.css';
 
-function checkout() {
+function Checkout() {
+    const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+        getCart();  
+    },[]);
+
+    async function getCart() {
+        const cartData = await CheckoutServices.getCartBooks();
+        setCart(cartData.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    }
 
     return (
-        <section className="container content-section">
+        <div className="cartcontainer">
             <h2 className="section-header">CART</h2>
             <div className="cart-row">
-                <span className="cart-item cart-header cart-column">ITEM</span>
+                {
+                cart.map((book, index) => {
+                    return (
+                    <Book
+                        key={book.id}
+                        Title={book.Title}
+                        Image={book.Image}
+                        Description={book.Description}
+                        Author={book.Author}
+                        Genre={book.Genre}
+                    />
+                    );
+                })
+                }
+                
             </div>
-            <button className="btn btn-primary btn-purchase" type="button">
+            <button className="checkoutBtn">
             CHECKOUT
             </button>
-        </section>
+        </div>
     );
 }
 
-export default checkout;
+export default Checkout;
