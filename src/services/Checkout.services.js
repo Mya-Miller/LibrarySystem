@@ -6,6 +6,7 @@ import {
     addDoc, 
     updateDoc, 
     deleteDoc, 
+    setDoc,
     doc 
 } from 'firebase/firestore';
 
@@ -13,7 +14,7 @@ const CheckoutCollectionRef = collection(db, "CheckoutLogs");
 
 class CheckoutDataService {
     addUserLog = (newUserLog) => { //maybe change to set
-        return addDoc(CheckoutCollectionRef, newUserLog);
+        return setDoc(CheckoutCollectionRef, newUserLog);
     }
 
 }
@@ -27,11 +28,10 @@ class CartDataService {
 }
 
 export default new CartDataService();
-/*  create cart collection,
-    add book to cart collection,
-    when clicking checkout,
-        lookup users document in cart collection,
-        add items in cart to BookList collection as documents,
-        refresh page,
-        clear all book documents from cart collection
-        */
+
+/*  when clicking checkout,
+    create user document using the users uid under the CheckoutLogs collection,
+    add book to users BookList collection (which is under their user document in CheckoutLogs), 
+    */
+    
+       

@@ -65,7 +65,7 @@ function App() {
             }
           </div>
             <NavLink to="/bookcatalog">View eBook Catalog</NavLink>
-            { (IsAuth === null) ? <></> : <NavLink to="/checkout">Checkout</NavLink> }
+            { (IsAuth === null) ? <></> : <NavLink to="/checkout">View Checked Out Books</NavLink> }
             <div>
               <button onClick={() => { SetDarkTheme(!theme) }} className="btn">Dark Mode</button>
             </div>

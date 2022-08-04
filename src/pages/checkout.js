@@ -33,6 +33,7 @@ function Checkout() {
                     );
                 })
                 }
+                
             </div>
             <button className="checkoutBtn">
             CHECKOUT

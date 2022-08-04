@@ -14,6 +14,10 @@ import {
     doc 
 } from 'firebase/firestore';
 
+
+
+
+
 function Book (props) {
     const IsAuth = sessionStorage.getItem('AuthToken');
 
@@ -24,7 +28,9 @@ function Book (props) {
     }
     
     function AddtoCart() {
-        setDoc(doc(db, "Cart", props.Title), {
+        const bookListRef = doc(db, "BookList", props.Title);
+
+        setDoc(bookListRef(db, "CheckoutLogs", "mRGLxvqmi0OanlVDAkm2aUPCGtW2"), {  // this doesnt work but we want to add the books to a subcollection
             Author: props.Author,
             Description: props.Description,
             Genre: props.Genre,
@@ -54,7 +60,7 @@ function Book (props) {
                         <h2>{props.Author}</h2>
                         <h3>{props.Genre}</h3>
                         </div>
-                        { (IsAuth === null) ? <></> : <button onClick={() => { AddtoCart() }} className='addtocart'>Add to Cart</button> }
+                        { (IsAuth === null) ? <></> : <button onClick={() => { AddtoCart() }} className='addtocart'>Checkout</button> }
                         </div>
                         <p>
                         {props.Description}<br></br>
