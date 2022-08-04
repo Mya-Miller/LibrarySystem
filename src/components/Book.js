@@ -9,34 +9,53 @@ import {
     getDocs, 
     getDoc, 
     setDoc, 
+    addDoc,
     updateDoc, 
     deleteDoc, 
     doc 
 } from 'firebase/firestore';
-
+import { getAuth } from 'firebase/auth';
 
 
 
 
 function Book (props) {
-    const IsAuth = sessionStorage.getItem('AuthToken');
-
+    const IsAuth = sessionStorage.getItem('AuthToken');    
+    
     const imgRef = useRef();
     
     function onImageError() {
         imgRef.current.src = DefaultImage;
     }
     
-    function AddtoCart() {
-        const bookListRef = doc(db, "BookList", props.Title);
+    function getUID() {
+        const auth = getAuth();
+        const user = auth.currentUser;
+        
+        if (user !== null) {  
+            console.log("Sign-in provider: " + user.providerId);
+            console.log("  Provider-specific UID: " + user.uid);
+            console.log("  Name: " + user.displayName);
+            console.log("  Email: " + user.email);
+            console.log("  Photo URL: " + user.photoURL); 
+            const id = user.uid;
+            return id;
+        }
+    }
 
-        setDoc(bookListRef(db, "CheckoutLogs", "mRGLxvqmi0OanlVDAkm2aUPCGtW2"), {  // this doesnt work but we want to add the books to a subcollection
+    function AddtoCart() {
+        const uid = getUID();
+        const collectionPath = "CheckoutLogs/" + uid + "/BookList";
+
+        setDoc(doc(db, collectionPath, props.Title), {  
             Author: props.Author,
             Description: props.Description,
             Genre: props.Genre,
             Image: props.Image,
             Title: props.Title
         });
+
+        
     }
 
     return (

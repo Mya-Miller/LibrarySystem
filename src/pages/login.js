@@ -2,6 +2,7 @@ import './login.css';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 import { UilEnvelope } from '@iconscout/react-unicons'
 import { UilLock } from '@iconscout/react-unicons'
 import { UilUser } from '@iconscout/react-unicons'
@@ -31,6 +32,10 @@ function Login () {
       navigate('/bookcatalog')
       sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
       console.log(sessionStorage.getItem('AuthToken'))
+
+      const user = authentication.currentUser;
+      const uid = user.uid;
+      setDoc(doc, "CheckoutLogs", uid);
     })
   }
 

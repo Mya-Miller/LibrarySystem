@@ -4,15 +4,15 @@ import CheckoutServices from "../services/Checkout.services";
 import './checkout.css';
 
 function Checkout() {
-    const [cart, setCart] = useState([]);
+    const [checkout, setCheckout] = useState([]);
 
     useEffect(() => {
-        getCart();  
+        getCheckout();  
     },[]);
 
-    async function getCart() {
-        const cartData = await CheckoutServices.getCartBooks();
-        setCart(cartData.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    async function getCheckout() {
+        const checkoutData = await CheckoutServices.getCartBooks();
+        setCheckout(checkoutData.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
 
     return (
@@ -20,7 +20,7 @@ function Checkout() {
             <h2 className="section-header">CART</h2>
             <div className="cart-row">
                 {
-                cart.map((book, index) => {
+                checkout.map((book, index) => {
                     return (
                     <Book
                         key={book.id}
@@ -33,7 +33,7 @@ function Checkout() {
                     );
                 })
                 }
-                
+                <button className="removeBtn">Remove</button>
             </div>
             <button className="checkoutBtn">
             CHECKOUT

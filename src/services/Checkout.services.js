@@ -1,4 +1,5 @@
 import {db} from '../FirebaseConfig';
+import { getAuth } from 'firebase/auth';
 import { 
     collection, 
     getDocs, 
@@ -10,24 +11,37 @@ import {
     doc 
 } from 'firebase/firestore';
 
-const CheckoutCollectionRef = collection(db, "CheckoutLogs");
+function getCollectionPath() {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    
+    if (user !== null) {  
+        console.log("Sign-in provider: " + user.providerId);
+        console.log("  Provider-specific UID: " + user.uid);
+        console.log("  Name: " + user.displayName);
+        console.log("  Email: " + user.email);
+        console.log("  Photo URL: " + user.photoURL); 
+        const id = user.uid;
+        const collection = "CheckoutLogs/" + id + "/BookList";
+        return id;
+    }
+    return "CheckoutLogs";
+}
+
+const collectionPath = getCollectionPath();
+const CheckoutCollectionRef = collection(db, collectionPath);
 
 class CheckoutDataService {
-    addUserLog = (newUserLog) => { //maybe change to set
+    addUserLog = (newUserLog) => { 
         return setDoc(CheckoutCollectionRef, newUserLog);
     }
-
-}
-
-const CartCollectionRef = collection(db, "Cart");
-
-class CartDataService {
     getCartBooks = () => {
-        return getDocs(CartCollectionRef);
+        return getDocs(CheckoutCollectionRef);
     }
 }
 
-export default new CartDataService();
+export default new CheckoutDataService();
+
 
 /*  when clicking checkout,
     create user document using the users uid under the CheckoutLogs collection,
