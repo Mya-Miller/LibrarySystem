@@ -12,7 +12,6 @@
 .sortbtncontainer {
     display: flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
     padding-top: 10px;
     padding-left: 6px;
     gap: 1em;
