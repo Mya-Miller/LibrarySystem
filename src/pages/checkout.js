@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Book from "../components/Book";
 import './checkout.css';
-import {  collection,  getDocs } from 'firebase/firestore';
+import {  collection,  getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth'
 import {db} from '../FirebaseConfig';
 
@@ -40,6 +40,14 @@ function Checkout() {
         setCheckout(checkoutData.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
 
+    /*function returnBook() {
+        const uid = getUID();
+        const collectionPath = "CheckoutLogs/" + uid + "/BookList";
+
+        deleteDoc(doc(db, collectionPath, props.Title));
+        
+    }*/
+
     return[
         <div className="cartcontainer">
             <h2 className="section-header">My Books</h2>
@@ -57,7 +65,12 @@ function Checkout() {
                                 Author={book.Author}
                                 Genre={book.Genre} 
                             />
-                            <button className="return-Btn">Return</button>
+                            <button onClick={() => { 
+                                const uid = getUID();
+                                const collectionPath = "CheckoutLogs/" + uid + "/BookList";
+                                deleteDoc(doc(db, collectionPath, book.Title));
+                                //window.location.reload(); this reloads the page but with this here book doesnt get removed
+                                }} className="return-Btn">Return</button>
                         </div>
                     </>
                     );
