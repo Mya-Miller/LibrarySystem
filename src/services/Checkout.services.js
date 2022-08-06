@@ -3,12 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { 
     collection, 
     getDocs, 
-    getDoc, 
-    addDoc, 
-    updateDoc, 
-    deleteDoc, 
-    setDoc,
-    doc 
+    setDoc  
 } from 'firebase/firestore';
 
 function getCollectionPath() {
@@ -43,11 +38,3 @@ class CheckoutDataService {
 }
 
 export default new CheckoutDataService();
-
-
-/*  when clicking checkout,
-    create user document using the users uid under the CheckoutLogs collection,
-    add book to users BookList collection (which is under their user document in CheckoutLogs), 
-    */
-    
-       

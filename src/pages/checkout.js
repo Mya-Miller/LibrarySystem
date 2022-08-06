@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import Book from "../components/Book";
-import CheckoutServices from "../services/Checkout.services";
 import './checkout.css';
-import { 
-    collection, 
-    getDocs, 
-    getDoc, 
-    setDoc, 
-    addDoc,
-    updateDoc, 
-    deleteDoc, 
-    doc 
-} from 'firebase/firestore';
+import {  collection,  getDocs } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth'
 import {db} from '../FirebaseConfig';
 

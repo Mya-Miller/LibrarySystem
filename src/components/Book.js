@@ -4,20 +4,8 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import './Book.css';
 import {db} from '../FirebaseConfig';
-import { 
-    collection, 
-    getDocs, 
-    getDoc, 
-    setDoc, 
-    addDoc,
-    updateDoc, 
-    deleteDoc, 
-    doc 
-} from 'firebase/firestore';
+import {  setDoc, doc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-
-
-
 
 function Book (props) {
     const IsAuth = sessionStorage.getItem('AuthToken');    
