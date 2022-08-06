@@ -40,31 +40,26 @@ function Checkout() {
         setCheckout(checkoutData.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
 
-    return (
+    return[
         <div className="cartcontainer">
-            <h2 className="section-header">CART</h2>
-            <div className="cart-row">
+            <h2 className="section-header">CHECKED OUT</h2>
+            <div className="cart-row" >
                 {
                 checkout.map((book, index) => {
                     return (
-                    <Book
-                        key={book.id}
-                        Title={book.Title}
-                        Image={book.Image}
-                        Description={book.Description}
-                        Author={book.Author}
-                        Genre={book.Genre}
-                    />
+                    <><Book
+                            key={book.id}
+                            Title={book.Title}
+                            Image={book.Image}
+                            Description={book.Description}
+                            Author={book.Author}
+                            Genre={book.Genre} /><button className="removeBtn">Remove</button></>
                     );
                 })
                 }
-                <button className="removeBtn">Remove</button>
             </div>
-            <button className="checkoutBtn">
-            CHECKOUT
-            </button>
         </div>
-    );
+    ];
 }
 
 export default Checkout;
