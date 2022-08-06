@@ -28,6 +28,10 @@
     flex-wrap: wrap;
 }
 
+.checkout-thumbnail {
+    display: flex;
+    flex-direction: column;
+}
 
 .cart-item {
     width: 45%;

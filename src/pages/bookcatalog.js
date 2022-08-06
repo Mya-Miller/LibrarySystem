@@ -53,17 +53,12 @@ function Bookcatalog() {
   return (
     <div className="catalog">
       <div className="sortbtncontainer">
-      {/*<div className="dropdown">
-      <button className="dropdownBtn">Sort</button>
-      <div className="sortoptions">*/}
       <button onClick={() => { sortAscending() }} className="sortBtn Ascending">Ascending</button>
       <button onClick={() => { sortDescending() }} className="sortBtn Descending">Descending</button>
       <button onClick={() => { sortAuthor() }} className="sortBtn Author">Author</button>
       <button onClick={() => { sortGenre() }} className="sortBtn Genre">Genre</button>
       <button onClick={() => { sortISBN() }} className="sortBtn ISBN">ISBN</button>
       </div>
-      {/*</div>
-      </div>*/}
       <div id="bookCatalogRow">
         {
           books.map((book, index) => {
