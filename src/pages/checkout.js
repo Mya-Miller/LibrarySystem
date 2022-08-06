@@ -69,7 +69,7 @@ function Checkout() {
                                 const uid = getUID();
                                 const collectionPath = "CheckoutLogs/" + uid + "/BookList";
                                 deleteDoc(doc(db, collectionPath, book.Title));
-                                //window.location.reload(); this reloads the page but with this here book doesnt get removed
+                                //window.location.reload(); //this reloads the page but with this here book doesnt get removed
                                 }} className="return-Btn">Return</button>
                         </div>
                     </>

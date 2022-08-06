@@ -67,7 +67,7 @@ function Book (props) {
                         <h2>{props.Author}</h2>
                         <h3>{props.Genre}</h3>
                         </div>
-                        { (IsAuth === null) ? <></> : <button onClick={() => { AddtoCart() }} className='addtocart'>Checkout</button> }
+                        { ((IsAuth === null) || (window.location.pathname =='/checkout') ) ? <></> : <button onClick={() => { AddtoCart() }} className='addtocart'>Checkout</button> }
                         </div>
                         <p>
                         {props.Description}<br></br>
