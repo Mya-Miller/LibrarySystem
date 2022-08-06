@@ -64,8 +64,8 @@ function Book (props) {
                         <div className='popupheader'>
                         <div className='bookinfo'>
                         <h1>{props.Title}</h1>
-                        <h2>{props.Author}</h2>
-                        <h3>{props.Genre}</h3>
+                        <h2>Author: {props.Author}</h2>
+                        <h3>Genre: {props.Genre}</h3>
                         </div>
                         { ((IsAuth === null) || (window.location.pathname =='/checkout') ) ? <></> : <button onClick={() => { AddtoCart() }} className='addtocart'>Checkout</button> }
                         </div>
