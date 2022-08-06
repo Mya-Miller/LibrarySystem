@@ -25,7 +25,9 @@ function getCollectionPath() {
         const collection = "CheckoutLogs/" + id + "/BookList";
         return id;
     }
-    return "CheckoutLogs";
+    else {
+        return "CheckoutLogs"
+    } 
 }
 
 const collectionPath = getCollectionPath();
