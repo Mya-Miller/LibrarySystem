@@ -28,3 +28,9 @@
     background-color: var(--thumbnailBg);
     cursor: pointer;
 }
+
+.sortBtn:hover {
+    background-color: #202124;
+    transition: 0.2s;
+    color: white;
+}
