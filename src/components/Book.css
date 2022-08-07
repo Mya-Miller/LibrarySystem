@@ -53,13 +53,14 @@ div.thumbnail {
     width: 90px;
     cursor: pointer;
     align-self: center;
-    background-color: #000000;
     border: none;
-    color: white;
     text-align: center;
+    color: var(--fontColor);
+    background-color: var(--thumbnailBg);
 }
 
 .addtocart:hover {
     background-color: #202124;
     transition: 0.2s;
+    color: white;
 }
