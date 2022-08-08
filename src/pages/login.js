@@ -5,6 +5,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 import { UilEnvelope } from '@iconscout/react-unicons'
 import { UilLock } from '@iconscout/react-unicons'
 import { UilUser } from '@iconscout/react-unicons'
+//import CheckoutServices from '../services/Checkout.services';
 
 function Login () {
   const [LoginPage, SetLoginPage] = useState(true);
@@ -17,6 +18,10 @@ function Login () {
     const authentication = getAuth();
     signInWithEmailAndPassword(authentication, email, password)
     .then((response) => {
+      const uid = authentication.currentUser.uid;
+      console.log(uid)
+      sessionStorage.setItem('userUID', uid)
+      console.log("UID saved")
       navigate('/bookcatalog')
       window.location.reload(1);
       sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
@@ -28,7 +33,12 @@ function Login () {
     const authentication = getAuth();
     createUserWithEmailAndPassword(authentication, email, password)
     .then((response) => {
+      const uid = authentication.currentUser.uid;
+      console.log(uid)
+      sessionStorage.setItem('userUID', uid)
+      //CheckoutServices.addUserLog(uid); 
       navigate('/bookcatalog')
+      window.location.reload(1);
       sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
       console.log(sessionStorage.getItem('AuthToken'))
     })

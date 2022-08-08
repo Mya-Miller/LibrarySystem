@@ -23,7 +23,6 @@ div.thumbnail {
 }
 
 .popup-content {
-    /*top: 5% !important;*/
     position: fixed;
     left: 25% !important;
     width: 50%;
@@ -53,4 +52,14 @@ div.thumbnail {
     width: 90px;
     cursor: pointer;
     align-self: center;
+    border: none;
+    text-align: center;
+    color: var(--fontColor);
+    background-color: var(--thumbnailBg);
+}
+
+.addtocart:hover {
+    background-color: #202124;
+    transition: 0.2s;
+    color: white;
 }
