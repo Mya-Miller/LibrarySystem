@@ -18,7 +18,8 @@ function Checkout() {
     function returnBook(bookTitle) {
         CheckoutServices.returnBook(bookTitle)
         console.log("Book Returned")
-        window.location.reload(); //messes up the return. can only return after adding any book and cannot return otherwise. there is a error but i cant read it quick enough
+        alert("Book Returned")
+        //window.location.reload(); //messes up the return. can only return after adding any book and cannot return otherwise. there is a error but i cant read it quick enough
     }
 
     return[

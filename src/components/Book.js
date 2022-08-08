@@ -25,6 +25,7 @@ function Book (props) {
 
         CheckoutServices.checkoutBook(props.Title, bookInfo);
         console.log("Book added")
+        alert("Book checked out")
     }
 
     return (
