@@ -2,10 +2,10 @@ import './login.css';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
 import { UilEnvelope } from '@iconscout/react-unicons'
 import { UilLock } from '@iconscout/react-unicons'
 import { UilUser } from '@iconscout/react-unicons'
+//import CheckoutServices from '../services/Checkout.services';
 
 function Login () {
   const [LoginPage, SetLoginPage] = useState(true);
@@ -33,12 +33,12 @@ function Login () {
     const authentication = getAuth();
     createUserWithEmailAndPassword(authentication, email, password)
     .then((response) => {
-      /*const uid = authentication.currentUser.uid;
+      const uid = authentication.currentUser.uid;
       console.log(uid)
-      setDoc(doc, "CheckoutLogs", uid);
-      console.log("Doc created.")
-      sessionStorage.setItem('userUID', uid)*/
+      sessionStorage.setItem('userUID', uid)
+      //CheckoutServices.addUserLog(uid); 
       navigate('/bookcatalog')
+      window.location.reload(1);
       sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
       console.log(sessionStorage.getItem('AuthToken'))
     })

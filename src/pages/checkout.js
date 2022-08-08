@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import Book from "../components/Book";
 import './checkout.css';
-import {  collection,  getDocs, deleteDoc, doc } from 'firebase/firestore';
-import {db} from '../FirebaseConfig';
+import CheckoutServices from "../services/Checkout.services";
 
 function Checkout() {
     const [checkout, setCheckout] = useState([]);
@@ -11,23 +10,14 @@ function Checkout() {
         getCheckout();  
     },[]);
 
-    function getCheckoutBooks() {
-        const uid = sessionStorage.getItem('userUID')
-        const collectionPath = "CheckoutLogs/" + uid + "/BookList";
-        const CheckoutCollectionRef = collection(db, collectionPath);
-        
-        return getDocs(CheckoutCollectionRef);
-    }
-
     async function getCheckout() {
-        const checkoutData = await getCheckoutBooks();
+        const checkoutData = await CheckoutServices.getCheckoutBooks();
         setCheckout(checkoutData.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
 
     function returnBook(bookTitle) {
-        const uid = sessionStorage.getItem('userUID')
-        const collectionPath = "CheckoutLogs/" + uid + "/BookList";
-        deleteDoc(doc(db, collectionPath, bookTitle));
+        CheckoutServices.returnBook(bookTitle)
+        console.log("Book Returned")
         window.location.reload(); //messes up the return. can only return after adding any book and cannot return otherwise. there is a error but i cant read it quick enough
     }
 

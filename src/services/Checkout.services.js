@@ -1,8 +1,10 @@
 import {db} from '../FirebaseConfig';
 import { 
     collection, 
+    doc,
     getDocs, 
-    setDoc  
+    setDoc,
+    deleteDoc  
 } from 'firebase/firestore';
 
 const uid = sessionStorage.getItem('userUID');
@@ -16,6 +18,13 @@ class CheckoutDataService {
     }
     getCheckoutBooks = () => {
         return getDocs(bookListCollectionRef);
+    }
+    returnBook = (bookTitle) => {
+        const book = doc(db, bookCollectionPath, bookTitle);
+        return deleteDoc(book);
+    }
+    checkoutBook = (bookTitle, bookInfo) => {
+        return setDoc(doc(bookListCollectionRef, bookTitle), bookInfo);
     }
 }
 

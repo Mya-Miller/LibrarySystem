@@ -3,8 +3,7 @@ import DefaultImage from '../../src/images/DefaultBook.jpg';
 import React from 'react';
 import Popup from 'reactjs-popup';
 import './Book.css';
-import {db} from '../FirebaseConfig';
-import { setDoc, doc } from 'firebase/firestore';
+import CheckoutServices from '../services/Checkout.services';
 
 function Book (props) {
     const IsAuth = sessionStorage.getItem('AuthToken');    
@@ -16,16 +15,15 @@ function Book (props) {
     }
 
     function Checkout() {
-        const uid = sessionStorage.getItem('userUID')
-        const collectionPath = "CheckoutLogs/" + uid + "/BookList";
-
-        setDoc(doc(db, collectionPath, props.Title), {  
+        const bookInfo = {
             Author: props.Author,
             Description: props.Description,
             Genre: props.Genre,
             Image: props.Image,
             Title: props.Title
-        });
+        }
+
+        CheckoutServices.checkoutBook(props.Title, bookInfo);
         console.log("Book added")
     }
 
@@ -50,7 +48,7 @@ function Book (props) {
                         <h2>Author: {props.Author}</h2>
                         <h3>Genre: {props.Genre}</h3>
                         </div>
-                        { ((IsAuth === null) || (window.location.pathname =='/checkout') ) ? <></> : <button onClick={() => { Checkout() }} className='addtocart'>Checkout</button> }
+                        { ((IsAuth === null) || (window.location.pathname ==='/checkout') ) ? <></> : <button onClick={() => { Checkout() }} className='addtocart'>Checkout</button> }
                         </div>
                         <p>
                         {props.Description}<br></br>
