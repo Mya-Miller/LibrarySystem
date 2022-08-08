@@ -18,6 +18,10 @@ function Login () {
     const authentication = getAuth();
     signInWithEmailAndPassword(authentication, email, password)
     .then((response) => {
+      const uid = authentication.currentUser.uid;
+      console.log(uid)
+      sessionStorage.setItem('userUID', uid)
+      console.log("UID saved")
       navigate('/bookcatalog')
       window.location.reload(1);
       sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
@@ -29,13 +33,14 @@ function Login () {
     const authentication = getAuth();
     createUserWithEmailAndPassword(authentication, email, password)
     .then((response) => {
+      /*const uid = authentication.currentUser.uid;
+      console.log(uid)
+      setDoc(doc, "CheckoutLogs", uid);
+      console.log("Doc created.")
+      sessionStorage.setItem('userUID', uid)*/
       navigate('/bookcatalog')
       sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
       console.log(sessionStorage.getItem('AuthToken'))
-
-      const user = authentication.currentUser;
-      const uid = user.uid;
-      setDoc(doc, "CheckoutLogs", uid);
     })
   }
 

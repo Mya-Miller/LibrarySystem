@@ -5,7 +5,6 @@ import Popup from 'reactjs-popup';
 import './Book.css';
 import {db} from '../FirebaseConfig';
 import { setDoc, doc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
 
 function Book (props) {
     const IsAuth = sessionStorage.getItem('AuthToken');    
@@ -15,24 +14,9 @@ function Book (props) {
     function onImageError() {
         imgRef.current.src = DefaultImage;
     }
-    
-    function getUID() {
-        const auth = getAuth();
-        const user = auth.currentUser;
-        
-        if (user !== null) {  
-            console.log("Sign-in provider: " + user.providerId);
-            console.log("  Provider-specific UID: " + user.uid);
-            console.log("  Name: " + user.displayName);
-            console.log("  Email: " + user.email);
-            console.log("  Photo URL: " + user.photoURL); 
-            const id = user.uid;
-            return id;
-        }
-    }
 
-    function AddtoCart() {
-        const uid = getUID();
+    function Checkout() {
+        const uid = sessionStorage.getItem('userUID')
         const collectionPath = "CheckoutLogs/" + uid + "/BookList";
 
         setDoc(doc(db, collectionPath, props.Title), {  
@@ -42,8 +26,7 @@ function Book (props) {
             Image: props.Image,
             Title: props.Title
         });
-
-        
+        console.log("Book added")
     }
 
     return (
@@ -67,7 +50,7 @@ function Book (props) {
                         <h2>Author: {props.Author}</h2>
                         <h3>Genre: {props.Genre}</h3>
                         </div>
-                        { ((IsAuth === null) || (window.location.pathname =='/checkout') ) ? <></> : <button onClick={() => { AddtoCart() }} className='addtocart'>Checkout</button> }
+                        { ((IsAuth === null) || (window.location.pathname =='/checkout') ) ? <></> : <button onClick={() => { Checkout() }} className='addtocart'>Checkout</button> }
                         </div>
                         <p>
                         {props.Description}<br></br>
