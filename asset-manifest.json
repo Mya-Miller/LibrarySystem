@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Mya-Miller/LibrarySystem/static/css/main.55c9a51b.css",
-    "main.js": "/Mya-Miller/LibrarySystem/static/js/main.fbe62d07.js",
+    "main.css": "/Mya-Miller/LibrarySystem/static/css/main.f9072266.css",
+    "main.js": "/Mya-Miller/LibrarySystem/static/js/main.29858145.js",
     "static/js/787.590847e5.chunk.js": "/Mya-Miller/LibrarySystem/static/js/787.590847e5.chunk.js",
     "static/media/DefaultBook.jpg": "/Mya-Miller/LibrarySystem/static/media/DefaultBook.95813636450b15325ff2.jpg",
     "static/media/UNTLogo.png": "/Mya-Miller/LibrarySystem/static/media/UNTLogo.5bce4e141e549226c7ef.png",
     "index.html": "/Mya-Miller/LibrarySystem/index.html",
-    "main.55c9a51b.css.map": "/Mya-Miller/LibrarySystem/static/css/main.55c9a51b.css.map",
-    "main.fbe62d07.js.map": "/Mya-Miller/LibrarySystem/static/js/main.fbe62d07.js.map",
+    "main.f9072266.css.map": "/Mya-Miller/LibrarySystem/static/css/main.f9072266.css.map",
+    "main.29858145.js.map": "/Mya-Miller/LibrarySystem/static/js/main.29858145.js.map",
     "787.590847e5.chunk.js.map": "/Mya-Miller/LibrarySystem/static/js/787.590847e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.55c9a51b.css",
-    "static/js/main.fbe62d07.js"
+    "static/css/main.f9072266.css",
+    "static/js/main.29858145.js"
   ]
 }
